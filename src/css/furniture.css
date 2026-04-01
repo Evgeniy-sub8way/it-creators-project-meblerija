@@ -11,14 +11,14 @@
     padding: 32px 0;
   }
 
-  .container-furniture {
+  .containHeader Hero Furniture About FAQ Feedback Footerer-furniture {
     padding: 0 48px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .furniture {
-    padding: 64 0;
+    padding: 64px 0;
   }
   .container-furniture {
     padding: 0 80px;
