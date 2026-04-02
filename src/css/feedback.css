@@ -1,3 +1,14 @@
+/* body {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #080c09;
+  background-color: #fff;
+} */
+
+/* Мобільна версія */
+
 .feedback {
   padding: 0 20px;
 }
@@ -6,6 +17,122 @@
   padding: 64px 0;
 }
 
+.feedback-title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  margin-bottom: 24px;
+  width: 335px;
+}
+
+.feedback-description {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 80px;
+  width: 335px;
+}
+
+.feedback-list {
+  margin-bottom: 48px;
+}
+
+.feedback-item {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.star-container {
+}
+
+.star {
+}
+
+.feedback-text {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.6;
+  width: 335px;
+}
+
+.feedback-author {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.pagination-btn-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 135px;
+}
+
+/* ЗАГЛУШКА ДЛЯ ВИДИМОСТІ */
+.pagination {
+  width: 24px;
+  height: 24px;
+  background-color: aqua;
+}
+/* ЗАГЛУШКА ДЛЯ ВИДИМОСТІ */
+
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.left-btn,
+.right-btn {
+  border: 1px solid rgba(8, 12, 9, 0.15);
+  border-radius: 100px;
+  padding: 12px;
+  width: 48px;
+  height: 48px;
+  background-color: #f2f2f2;
+  fill: #080c09;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.left-btn:hover,
+.right-btn:hover,
+.left-btn:focus,
+.right-btn:focus {
+  background-color: #975052;
+  fill: #fff;
+}
+
+.left-btn:active,
+.right-btn:active {
+  background-color: #6b0609;
+  fill: #fff;
+}
+
+.left-btn:disabled,
+.right-btn:disabled {
+  background-color: #f2f2f2;
+  opacity: 0.3;
+  fill: #080c09;
+  cursor: not-allowed;
+}
+
+/* Планшетна версія */
+
 @media screen and (min-width: 768px) {
   .feedback {
     padding: 0 32px;
@@ -13,7 +140,36 @@
   .container-feedback {
     padding: 32px 0;
   }
+
+  .feedback-title {
+    width: 560px;
+  }
+
+  .feedback-description {
+    width: 560px;
+  }
+
+  .feedback-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .feedback-item {
+    width: 340px;
+  }
+
+  .feedback-text {
+    width: 340px;
+  }
+
+  .pagination-btn-wrapper {
+    gap: 504px;
+  }
 }
+
+/* Десктопна версія */
 
 @media screen and (min-width: 1440px) {
   .feedback {
@@ -21,5 +177,21 @@
   }
   .container-feedback {
     padding: 64px 0;
+  }
+
+  .feedback-title {
+    font-size: 48px;
+  }
+
+  .feedback-item {
+    width: 421px;
+  }
+
+  .feedback-text {
+    width: 370px;
+  }
+
+  .pagination-btn-wrapper {
+    gap: 1112px;
   }
 }
