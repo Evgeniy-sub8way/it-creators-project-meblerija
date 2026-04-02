@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Меблерія</title>
     <script type="module" crossorigin src="/it-creators-project-meblerija/index.js"></script>
-    <link rel="stylesheet" crossorigin href="/it-creators-project-meblerija/assets/index-z8z_giEr.css">
+    <link rel="stylesheet" crossorigin href="/it-creators-project-meblerija/assets/index-B5Ekn8oC.css">
   </head>
   <body>
     <header class="header">
@@ -49,7 +49,44 @@
 
       <section class="about">
   <div class="container-about">
-    <h2>About</h2>
+    <div class="about__content">
+      <h2 class="about__title">Про Меблерію</h2>
+
+      <p class="about__text">
+        У Меблерії ми прагнемо створювати затишок та функціональність у кожному
+        домі. Наша місія - пропонувати високоякісні меблі, що поєднують у собі
+        сучасний дизайн, довговічність та доступність. Ми віримо, що ідеальний
+        інтер'єр починається з правильних меблів.
+      </p>
+    </div>
+
+    <picture class="about__picture">
+      <source
+        media="(min-width: 1440px)"
+        srcset="../img/about/about-desk@1x.webp 1x, ../img/about/about-desk@2x.webp 2x"
+        type="image/webp"
+      />
+
+      <source
+        media="(min-width: 768px)"
+        srcset="../img/about/about-tab@1x.webp 1x, ../img/about/about-tab@2x.webp 2x"
+        type="image/webp"
+      />
+
+      <source
+        srcset="../img/about/about-mob@1x.webp 1x, ../img/about/about-mob@2x.webp 2x"
+        type="image/webp"
+      />
+
+      <img
+        src="../img/about/about-mob@1x.webp"
+        alt="Команда обговорює проєкт"
+        class="about__image"
+        width="335"
+        height="250"
+        loading="lazy"
+      />
+    </picture>
   </div>
 </section>
 
