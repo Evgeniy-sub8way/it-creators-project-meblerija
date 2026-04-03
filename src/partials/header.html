@@ -2,7 +2,7 @@
   <div class="container container-header">
     <nav class="nav">
       <a class="logo" href="#">
-        <img src="./img/logo.svg" alt="logo" width="126" height="18">
+        <img src="./img/logo.svg" alt="logo" width="163" height="69.86">
       </a>
 
       <div class="nav-desktop">
@@ -17,14 +17,14 @@
 
       <button class="menu-toggle js-open-menu" aria-expanded="false">
         <svg width="32" height="32">
-          <use href="./img/icons.svg#icon-relume"></use>
+          <use href="./img/icons.svg#icon-arrow-back"></use>
         </svg>
       </button>
     </nav>
   </div>
 </header>
 
-<div class="mobile-menu js-menu-container">
+<div class="mobile-menu js-menu-container ">
   <button class="menu-close js-close-menu">
     <svg width="32" height="32">
       <use href="./img/icons.svg#icon-x"></use>
@@ -61,3 +61,18 @@
     </svg>
   </div>
 -->
+<script> 
+const openBtn = document.querySelector('.js-open-menu');
+const closeBtn = document.querySelector('.js-close-menu');
+const menu = document.querySelector('.js-menu-container');
+
+openBtn.addEventListener('click', () => {
+menu.classList.add('is-open');
+document.body.style.overflow = 'hidden'; // блокуємо скрол
+});
+
+closeBtn.addEventListener('click', () => {
+menu.classList.remove('is-open');
+document.body.style.overflow = ''; // повертаємо скрол
+});
+</script>
