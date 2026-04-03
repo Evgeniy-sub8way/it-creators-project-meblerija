@@ -1,27 +1,168 @@
 .header {
   padding: 0 20px;
+  background: #fff;
+  position: relative;
+  z-index: 10;
 }
 
 .container-header {
   padding: 0;
 }
 
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.logo img {
+  display: block;
+}
+
+/* DESKTOP NAV (hidden mobile) */
+.nav-desktop {
+  display: none;
+}
+
+/* BURGER */
+.menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* ================= MOBILE MENU ================= */
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px;
+
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+/* ACTIVE */
+.mobile-menu.is-open {
+  transform: translateX(0);
+}
+
+/* CLOSE BTN */
+.menu-close {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* MENU LIST */
+.mobile-nav-list {
+  list-style: none;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.mobile-nav-list li {
+  margin-bottom: 24px;
+}
+
+.mobile-nav-list a {
+  text-decoration: none;
+  color: #111;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Raleway", sans-serif;
+}
+
+/* BUTTON */
+.btn-primary {
+  border-radius: 100px;
+  padding: 8px 20px;
+  height: 42px;
+  box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(8, 12, 9, 0.15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+  background: #6B0609;
+
+  border: none;
+  cursor: pointer;
+
+
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 160%;
+  color: #fff;
+
+}
+
+/* ================= TABLET ================= */
+
 @media screen and (min-width: 768px) {
+
   .header {
-    padding: 0 32px;
+    padding: 16px 32px;
   }
-  .container-header {
-    padding-top: 0;
-    padding-bottom: 0;
+
+  /* hide burger */
+  .menu-toggle {
+    display: none;
+  }
+
+  /* show desktop nav */
+  .nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+
+  .nav-link {
+    text-decoration: none;
+    color: #111;
+    font-size: 14px;
+    transition: 0.2s;
+  }
+
+  .nav-link:hover {
+    opacity: 0.6;
+  }
+
+  /* button smaller desktop */
+  .btn-primary {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  /* hide mobile menu completely */
+  .mobile-menu {
+    display: none;
   }
 }
 
+/* ================= DESKTOP ================= */
+
 @media screen and (min-width: 1440px) {
   .header {
-    padding: 0 64px;
+    padding: 16px 64px;
   }
-  .container-header {
-    padding-top: 0;
-    padding-bottom: 0;
+
+  .nav-desktop {
+    gap: 40px;
+  }
+
+  .nav-list {
+    gap: 32px;
   }
 }
