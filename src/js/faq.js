@@ -29,9 +29,14 @@ const container = document.querySelector(".container-faq");
 
 const markup = faqData.map(({ question, answer }) => `
 <div class="ac">
-        <h2 class="ac-header">
-          <button type="button" class="ac-trigger">${question}</button>
-        </h2><div class="ac-panel">
+        <h3 class="ac-header">
+          <button type="button" class="ac-trigger">
+          <span>${question}</span>
+          <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.29297 14.2929L7.70697 15.7069L12 11.4139L16.293 15.7069L17.707 14.2929L12 8.58594L6.29297 14.2929Z" fill="#080C09" />
+</svg>
+          </button>
+        </h3><div class="ac-panel">
           <p class="ac-text">${answer}</p>
         </div></div>`).join("");
 
@@ -44,5 +49,6 @@ if (container) {
       showMultiple: false,
 });
 }
-    
+
+
 
