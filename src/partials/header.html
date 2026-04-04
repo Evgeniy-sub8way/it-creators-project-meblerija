@@ -1,9 +1,55 @@
 <header class="header">
-  <div class="container-header">
-    <h2>Header</h2>
-    <a>
-      <img src="./img/logo.svg" />
+  <div class="container container-header">
+    <nav class="nav">
+      <a class="logo" href="./index.html">
+        <img src="./img/logo.svg" alt="logo" width="163" height="69.86">
+      </a>
+
+      <div class="nav-desktop">
+        <ul class="nav-list">
+          <li><a href="#" class="nav-link">Наші меблі</a></li>
+          <li><a href="#" class="nav-link">Про нас</a></li>
+          <li><a href="#" class="nav-link">Часті питання</a></li>
+          <li><a href="#" class="nav-link">Відгуки</a></li>
+        </ul>
+        <button class="btn-primary">До покупок</button>
+      </div>
+
+      <button class="menu-toggle js-open-menu" aria-expanded="false">
+        <svg width="21.33" height="16">
+          <use href="./img/icons.svg#icon-burger"></use>
+        </svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-menu js-menu-container ">
+  <div class="mobile-menu-head"> 
+    <a class="logo mobile-logo" href="./index.html">
+      <img src="./img/logo.svg" alt="logo" width="163" height="69.86">
     </a>
+    
+    <button class="menu-close js-close-menu">
+      <svg width="15.08" height="15.08">
+        <use href="./img/icons.svg#icon-x"></use>
+      </svg>
+    </button>
+  </div>
+
+  <ul class="mobile-nav-list">
+    <li><a href="#" class="mobile-nav-link">Наші меблі</a></li>
+    <li><a href="#" class="mobile-nav-link">Про нас</a></li>
+    <li><a href="#" class="mobile-nav-link">Часті питання</a></li>
+    <li><a href="#" class="mobile-nav-link">Відгуки</a></li>
+  </ul>
+  <button class="btn-primary mobile-btn">До покупок</button>
+</div>
+
+
+
+<!-- 
+  <div>
     <svg class="socials-icon" width="32" height="32">
       <use href="./img/icons.svg#icon-instagram"></use>
     </svg>
@@ -20,4 +66,43 @@
       <use href="./img/icons.svg#icon-arrow-back"></use>
     </svg>
   </div>
-</header>
+-->
+<script> 
+    const openBtn = document.querySelector('.js-open-menu');
+    const closeBtn = document.querySelector('.js-close-menu');
+    const menu = document.querySelector('.js-menu-container');
+
+openBtn.addEventListener('click', () => {
+      menu.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+});
+
+    closeBtn.addEventListener('click', closeMenu);
+
+    function closeMenu() {
+      menu.classList.remove('is-open');
+    document.body.style.overflow = '';
+}
+
+// Клік поза меню
+menu.addEventListener('click', (e) => {
+  if (e.target === menu) {
+      closeMenu();
+  }
+});
+
+// ESC
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+      closeMenu();
+  }
+});
+  const mobileLinks = document.querySelectorAll('.mobile-nav-list a');
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      closeMenu();
+    });
+  });
+
+</script>
