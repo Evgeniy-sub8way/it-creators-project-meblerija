@@ -70,7 +70,10 @@
 /* ACTIVE */
 .mobile-menu.is-open {
   transform: translateX(0);
+  padding-top: 0;
 }
+
+
 
 /* CLOSE BTN */
 .menu-close {
@@ -146,7 +149,7 @@
   .mobile-menu {
     padding: 32px;
     width: 249px;
-    height: auto;
+    
     left: auto;
     right: 0;
     top: 0;
@@ -155,6 +158,7 @@
   }
    .mobile-menu.is-open {
     transform: translateX(0);
+    padding-top: 6px;
   }
 
   
@@ -184,6 +188,10 @@
   }
 .mobile-menu {
   padding: 20px 64px;
+}
+.mobile-menu-head {
+  padding: 0;
+  margin: 0;
 }
 
     /* show desktop nav */
