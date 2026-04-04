@@ -17,7 +17,7 @@
 
       <button class="menu-toggle js-open-menu" aria-expanded="false">
         <svg width="32" height="32">
-          <use href="./img/icons.svg#icon-arrow-back"></use>
+          <use href="./img/icons.svg#icon-burger"></use>
         </svg>
       </button>
     </nav>
@@ -25,11 +25,17 @@
 </header>
 
 <div class="mobile-menu js-menu-container ">
-  <button class="menu-close js-close-menu">
-    <svg width="32" height="32">
-      <use href="./img/icons.svg#icon-x"></use>
-    </svg>
-  </button>
+  <div class="mobile-menu-head"> 
+    <a class="logo" href="#">
+      <img src="./img/logo.svg" alt="logo" width="163" height="69.86">
+    </a>
+    
+    <button class="menu-close js-close-menu">
+      <svg width="32" height="32">
+        <use href="./img/icons.svg#icon-x"></use>
+      </svg>
+    </button>
+  </div>
 
   <ul class="mobile-nav-list">
     <li><a href="#">Наші меблі</a></li>
@@ -39,7 +45,7 @@
   </ul>
   <button class="btn-primary mobile-btn">До покупок</button>
 </div>
-</header>
+
 
 
 <!-- 

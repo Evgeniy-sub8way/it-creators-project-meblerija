@@ -31,7 +31,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  /*padding: 4px;*/
 }
 
 /* ================= MOBILE MENU ================= */
@@ -45,10 +45,21 @@
   display: flex;
   flex-direction: column;
 
-  padding: 20px;
-
   transform: translateX(100%);
   transition: transform 0.3s ease;
+
+  font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 160%;
+    color: var(--color-scheme-1-text);
+}
+.mobile-menu-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 20px;
 }
 
 /* ACTIVE */
@@ -72,14 +83,14 @@
 }
 
 .mobile-nav-list li {
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
 .mobile-nav-list a {
   text-decoration: none;
   color: #111;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600;
   font-family: "Raleway", sans-serif;
 }
 
@@ -111,45 +122,8 @@
     padding: 0px 32px;
   }
 
-  /* hide burger */
-  .menu-toggle {
-    display: none;
-  }
 
-  /* show desktop nav */
-  .nav-desktop {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-  }
-
-  .nav-list {
-    display: flex;
-    gap: 24px;
-    list-style: none;
-  }
-
-  .nav-link {
-    text-decoration: none;
-    color: #111;
-    font-size: 14px;
-    transition: 0.2s;
-  }
-
-  .nav-link:hover {
-    opacity: 0.6;
-  }
-
-  /* button smaller desktop */
-  .btn-primary {
-    padding: 10px 20px;
-    font-size: 14px;
-  }
-
-  /* hide mobile menu completely */
-  .mobile-menu {
-    display: none;
-  }
+  
 }
 
 /* ================= DESKTOP ================= */
@@ -159,11 +133,48 @@
     padding: 0px 64px;
   }
 
+    /* show desktop nav */
   .nav-desktop {
-    gap: 40px;
-  }
-
-  .nav-list {
+    display: flex;
+    align-items: center;
     gap: 32px;
   }
+
+    /* hide burger */
+  .menu-toggle {
+    display: none;
+  }
+
+     /* hide mobile menu completely */
+     .mobile-menu {
+       display: none;
+     }
+
+    .nav-list {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+  
+    }
+  
+    .nav-link {
+      text-decoration: none;
+      color: #080C09;
+      font-size: 14px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 160%;
+  
+      transition: 0.2s;
+    }
+  
+    .nav-link:hover {
+      opacity: 0.6;
+    }
+  
+    /* button smaller desktop */
+    .btn-primary {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
 }
