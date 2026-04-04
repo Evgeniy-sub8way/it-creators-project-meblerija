@@ -97,6 +97,14 @@ document.addEventListener('keydown', (e) => {
       closeMenu();
   }
 });
+  document.addEventListener('click', (e) => {
+    const isClickInsideMenu = menu.contains(e.target);
+    const isClickOnButton = openBtn.contains(e.target);
+
+    if (!isClickInsideMenu && !isClickOnButton && menu.classList.contains('is-open')) {
+      closeMenu();
+    }
+  });
   const mobileLinks = document.querySelectorAll('.mobile-nav-list a');
 
   mobileLinks.forEach(link => {
