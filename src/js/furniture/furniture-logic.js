@@ -115,6 +115,26 @@ export async function renderFurnitureSection(category = '', page = 1) {
   }
 }
 
+// ---------- Handles category selection ----------
+
+async function handleCategoryClick(event) {
+  const clickedBtn = event.target.closest('.category-btn');
+  if (!clickedBtn) return;
+
+  document
+    .querySelector('.category-btn.is-active')
+    ?.classList.remove('is-active');
+
+  clickedBtn.classList.add('is-active');
+
+  currentCategory = clickedBtn.dataset.category || '';
+  currentPage = 1;
+
+  await renderFurnitureSection(currentCategory, currentPage);
+}
+
+refs.categoriesList.addEventListener('click', handleCategoryClick);
+
 // --------------- Load More ---------------
 
 refs.loadMoreBtn.addEventListener('click', async () => {
