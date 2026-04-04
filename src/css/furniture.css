@@ -92,72 +92,117 @@
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     image-set(
-      url('../img/all-products.webp') 1x,
-      url('../img/all-products@2x.webp') 2x
+      url('../img/furniture/all-products.webp') 1x,
+      url('../img/furniture/all-products@2x.webp') 2x
     );
 }
+
 .sofas {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    image-set(url('../img/sofas.webp') 1x, url('../img/sofas@2x.webp') 2x);
+    image-set(
+      url('../img/furniture/sofas.webp') 1x,
+      url('../img/furniture/sofas@2x.webp') 2x
+    );
 }
+
 .wardrobes {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     image-set(
-      url('../img/wardrobes.webp') 1x,
-      url('../img/wardrobes@2x.webp') 2x
+      url('../img/furniture/wardrobes.webp') 1x,
+      url('../img/furniture/wardrobes@2x.webp') 2x
     );
 }
+
 .beds {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    image-set(url('../img/beds.webp') 1x, url('../img/beds@2x.webp') 2x);
+    image-set(
+      url('../img/furniture/beds.webp') 1x,
+      url('../img/furniture/beds@2x.webp') 2x
+    );
 }
+
 .tables {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    image-set(url('../img/tables.webp') 1x, url('../img/tables@2x.webp') 2x);
+    image-set(
+      url('../img/furniture/tables.webp') 1x,
+      url('../img/furniture/tables@2x.webp') 2x
+    );
 }
+
 .chairs {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    image-set(url('../img/chairs.webp') 1x, url('../img/chairs@2x.webp') 2x);
+    image-set(
+      url('../img/furniture/chairs.webp') 1x,
+      url('../img/furniture/chairs@2x.webp') 2x
+    );
 }
+
 .kitchens {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    image-set(url('../img/kitchens.webp') 1x, url('../img/kitchens@2x.webp') 2x);
+    image-set(
+      url('../img/furniture/kitchens.webp') 1x,
+      url('../img/furniture/kitchens@2x.webp') 2x
+    );
 }
+
 .kids {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    image-set(url('../img/kids.webp') 1x, url('../img/kids@2x.webp') 2x);
+    image-set(
+      url('../img/furniture/kids.webp') 1x,
+      url('../img/furniture/kids@2x.webp') 2x
+    );
 }
+
 .office {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    image-set(url('../img/office.webp') 1x, url('../img/office@2x.webp') 2x);
+    image-set(
+      url('../img/furniture/office.webp') 1x,
+      url('../img/furniture/office@2x.webp') 2x
+    );
 }
+
 .hallway {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    image-set(url('../img/hallway.webp') 1x, url('../img/hallway@2x.webp') 2x);
+    image-set(
+      url('../img/furniture/hallway.webp') 1x,
+      url('../img/furniture/hallway@2x.webp') 2x
+    );
 }
+
 .bathroom {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    image-set(url('../img/bathroom.webp') 1x, url('../img/bathroom@2x.webp') 2x);
+    image-set(
+      url('../img/furniture/bathroom.webp') 1x,
+      url('../img/furniture/bathroom@2x.webp') 2x
+    );
 }
+
 .outdoor {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    image-set(url('../img/outdoor.webp') 1x, url('../img/outdoor@2x.webp') 2x);
+    image-set(
+      url('../img/furniture/outdoor.webp') 1x,
+      url('../img/furniture/outdoor@2x.webp') 2x
+    );
 }
+
 .decor {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    image-set(url('../img/decor.webp') 1x, url('../img/decor@2x.webp') 2x);
+    image-set(
+      url('../img/furniture/decor.webp') 1x,
+      url('../img/furniture/decor@2x.webp') 2x
+    );
 }
 
 .category-btn:hover,
@@ -279,7 +324,7 @@
   background-color: #e2e2e2;
 }
 
-.btn-pagination-wrapper {
+.container-pagination {
   display: flex;
   justify-content: center;
 
@@ -323,6 +368,10 @@
 .load-more:hover,
 .load-more:focus {
   opacity: 0.5;
+}
+
+#loader {
+  background-color: aqua;
 }
 
 /* ------ Media ------ */

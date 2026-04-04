@@ -145,11 +145,11 @@ refs.loadMoreBtn.addEventListener('click', async () => {
   try {
     await renderFurnitureSection(currentCategory, currentPage);
 
-    const firstCard = document.querySelector('.furniture-item');
-    if (firstCard) {
-      const cardHeight = firstCard.getBoundingClientRect().height;
-      window.scrollBy({ top: cardHeight * 2, behavior: 'smooth' });
-    }
+    // const firstCard = document.querySelector('.furniture-item');
+    // if (firstCard) {
+    //   const cardHeight = firstCard.getBoundingClientRect().height;
+    //   window.scrollBy({ top: cardHeight * 2, behavior: 'smooth' });
+    // }
   } catch (error) {
     iziToast.error({
       message: 'Сталася помилка. Спробуйте пізніше',
