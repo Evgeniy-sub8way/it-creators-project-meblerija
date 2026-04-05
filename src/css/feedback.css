@@ -1,17 +1,8 @@
-/* body {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #080c09;
-  background-color: #fff;
-} */
-
 /* Мобільна версія */
 
 .hidden {
-  display: none;
-  cursor: none;
+  display: none !important;
+  cursor: none !important;
 }
 
 .feedback {
@@ -23,8 +14,6 @@
 }
 
 .feedback-title {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 700;
   font-size: 36px;
   line-height: 1.2;
   letter-spacing: 0.01em;
@@ -33,7 +22,6 @@
 }
 
 .feedback-description {
-  font-family: 'Raleway', sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 1.6;
@@ -41,74 +29,58 @@
   width: 335px;
 }
 
-.feedback-list {
-  margin-bottom: 48px;
-}
-
 .swiper {
-  width: 335px;
-  height: 363px;
+  width: 100%;
+  min-height: 362px;
+  position: relative;
 }
 
-.swiper-slide {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.feedback-item {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.star-container {
+:root {
+  --swiper-theme-color: #080c09 !important;
 }
 
 .star {
   fill: #080c09;
 }
 
+.rating {
+  justify-content: flex-start !important;
+  margin-bottom: 24px !important;
+}
+
 .feedback-text {
-  font-family: 'Raleway', sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 1.6;
-  width: 335px;
+  max-width: 335px;
+  margin-bottom: 24px;
 }
 
 .feedback-author {
-  font-family: 'Raleway', sans-serif;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.6;
 }
 
-.pagination-btn-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 135px;
-}
-
 .swiper-pagination {
   color: gray;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: start !important;
 }
 
 .swiper-pagination:active {
   color: #080c09;
 }
 
-/* .btn-wrapper {
+.btn-wrapper {
+  position: absolute;
+  bottom: 24px;
+  right: 50px;
+
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 16px;
-} */
+}
 
 .swiper-button-prev,
 .swiper-button-next {
@@ -168,17 +140,8 @@
     width: 560px;
   }
 
-  .feedback-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 24px;
-  }
-
   .swiper {
-    width: 704px;
-    height: 350px;
+    min-height: 350px;
   }
 
   .feedback-item {
@@ -187,10 +150,6 @@
 
   .feedback-text {
     width: 340px;
-  }
-
-  .pagination-btn-wrapper {
-    gap: 504px;
   }
 }
 
@@ -209,8 +168,7 @@
   }
 
   .swiper {
-    width: 1312px;
-    height: 318px;
+    min-height: 318px;
   }
 
   .feedback-item {
@@ -219,9 +177,5 @@
 
   .feedback-text {
     width: 370px;
-  }
-
-  .pagination-btn-wrapper {
-    gap: 1112px;
   }
 }

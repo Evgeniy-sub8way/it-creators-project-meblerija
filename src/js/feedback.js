@@ -7,12 +7,13 @@ import 'css-star-rating/css/star-rating.css';
 import axios from 'axios';
 
 //Посилання на елементи JS
-const feedbackList = document.querySelector('.feedback-list');
+const feedbackList = document.querySelector('.swiper-wrapper');
 const leftBtn = document.querySelector('.swiper-button-prev');
 const rightBtn = document.querySelector('.swiper-button-next');
+const paginationElem = document.querySelector('.swiper-pagination');
 
 // Функція для запиту сервера
-export async function getFeedbacks() {
+async function getFeedbacks() {
   const baseURL = 'https://furniture-store-v2.b.goit.study/api';
   const endPoint = '/feedbacks';
   const url = baseURL + endPoint;
@@ -96,60 +97,66 @@ function feedbackTemplate(feedback) {
       </li>`;
 }
 
-export function feedbacksTemplate(feedbacks) {
+function feedbacksTemplate(feedbacks) {
   return feedbacks.map(feedbackTemplate).join('');
 }
 
 // Налаштування Swiper and Pagination
-const swiper = new Swiper('.swiper', {
-  modules: [Navigation, Pagination],
-  // Optional parameters
-  direction: 'horizontal',
-  loop: false,
+function initSwiper() {
+  const swiper = new Swiper('.swiper', {
+    modules: [Navigation, Pagination],
+    // Optional parameters
+    direction: 'horizontal',
+    loop: false,
 
-  // If we need pagination
-  pagination: {
-    el: '.swiper-pagination',
-  },
-
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-
-  slidesPerView: 1,
-
-  breakpoints: {
-    768: {
-      slidesPerView: 2,
-      spaceBetween: 24,
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
     },
-    1440: {
-      slidesPerView: 3,
-      spaceBetween: 24,
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
     },
-  },
 
-  allowSlideNext: true,
-  allowSlidePrev: true,
-  grabCursor: true,
-});
+    slidesPerView: 1,
 
-// Функції, щоб зробити елемент видимим і невидимим
-//НЕ ПРАЦЮЄ ЧОМУСЬ
+    breakpoints: {
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 24,
+      },
+      1440: {
+        slidesPerView: 3,
+        spaceBetween: 24,
+      },
+    },
 
-function showElem(elem) {
-  elem.classList.remove('hidden');
+    allowSlideNext: true,
+    allowSlidePrev: true,
+    grabCursor: true,
+    simulateTouch: true,
+  });
 }
 
-function hideElem(elem) {
-  elem.classList.add('hidden');
+// Функції, щоб зробити елементи навігації та пагінаціїї видимими і невидимими
+
+function showAllElem() {
+  leftBtn.classList.remove('hidden');
+  rightBtn.classList.remove('hidden');
+  paginationElem.classList.remove('hidden');
+}
+
+function hideAllElem() {
+  leftBtn.classList.add('hidden');
+  rightBtn.classList.add('hidden');
+  paginationElem.classList.add('hidden');
 }
 
 // Загальна логіка
 document.addEventListener('DOMContentLoaded', async () => {
-  // ДОПИСАТИ приховати кнопки навігації і пагінації
+  hideAllElem();
   // ДОПИСАТИ loader start
   try {
     const res = await getFeedbacks();
@@ -157,7 +164,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       'afterbegin',
       feedbacksTemplate(res.feedbacks)
     );
-    // ДОПИСАТИ показати кнопки навігації і пагінації
+    initSwiper();
+    showAllElem();
   } catch (error) {
     // ДОПИСАТИ show Error message
   } finally {
