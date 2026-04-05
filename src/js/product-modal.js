@@ -1,3 +1,5 @@
+import { getFurnitureById as fetchFurnitureById } from './api';
+
 const MOCK_FURNITURE = [
 	{
 		_id: '682f9bbf8acbdf505592ac36',
@@ -128,9 +130,11 @@ async function openProductModal(id = '682f9bbf8acbdf505592ac36') {
 		renderFurniture(furniture);
 		state.isOpen = true;
 		refs.closeBtn?.focus();
+		return furniture;
 	} catch {
 		closeProductModal();
 		showErrorToast('Не вдалося завантажити інформацію про товар. Спробуйте пізніше.');
+		return null;
 	} finally {
 		showLoader(false);
 	}
@@ -307,22 +311,59 @@ function formatPriceUAH(price) {
 }
 
 async function getFurnitureById(id) {
-	// MOCK-версія: імітує затримку як при запиті на сервер
-	// Коли буде реальне API, замінити на:
-	// const response = await fetch(`/api/furniture/${id}`);
-	// return response.json();
+	const mockFurniture = MOCK_FURNITURE.find(item => item._id === String(id));
+	if (mockFurniture) return mockFurniture;
 
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			const furniture = MOCK_FURNITURE.find(item => item._id === String(id));
-			if (!furniture) {
-				reject(new Error('Not found'));
-				return;
-			}
+	try {
+		const apiFurniture = await fetchFurnitureById(id);
+		return normalizeFurniture(apiFurniture);
+	} catch (error) {
+		throw error;
+	}
+}
 
-			resolve(furniture);
-		}, 450);
-	});
+function normalizeFurniture(furniture) {
+	if (!furniture || typeof furniture !== 'object') return furniture;
+
+	const imageUrls = Array.isArray(furniture.images)
+		? furniture.images
+				.map(image => {
+					if (typeof image === 'string') return image;
+					if (image && typeof image === 'object') return image.src || '';
+					return '';
+				})
+				.filter(Boolean)
+		: [];
+
+	const colorValues = Array.isArray(furniture.color)
+		? furniture.color
+		: Array.isArray(furniture.colors)
+			? furniture.colors
+					.map(color => {
+						if (typeof color === 'string') return color;
+						if (color && typeof color === 'object') return color.value || '';
+						return '';
+					})
+					.filter(Boolean)
+			: [];
+
+	const hasSizes = typeof furniture.sizes === 'string' && furniture.sizes.includes('x');
+	const fallbackSizes = furniture.dimensions
+		? `${furniture.dimensions.width ?? '-'}x${furniture.dimensions.height ?? '-'}x${furniture.dimensions.depth ?? '-'}`
+		: '-x-x-';
+
+	return {
+		...furniture,
+		_id: furniture._id || furniture.id || '',
+		rate: Number(furniture.rate ?? furniture.rating ?? 0),
+		sizes: hasSizes ? furniture.sizes : fallbackSizes,
+		images: imageUrls,
+		color: colorValues,
+		category:
+			typeof furniture.category === 'string'
+				? { _id: '', name: furniture.category }
+				: furniture.category || { _id: '', name: furniture.type || '' },
+	};
 }
 
 function openOrderModal() {
