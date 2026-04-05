@@ -1,5 +1,5 @@
 import '../../css/furniture.css';
-// import '../product-modal.js';    ПІДКЛЮЧИТИ МОДАЛКУ
+// import { openProductModal } from '../product-modal.js';
 
 import { fetchCategories, fetchFurniture } from './furniture-api.js';
 import {
@@ -11,6 +11,8 @@ import {
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
+// ----------------- refs -----------------
+
 const refs = {
   categoriesList: document.querySelector('#categories'),
   furnitureList: document.querySelector('#furniture-list'),
@@ -21,17 +23,33 @@ const refs = {
 let currentCategory = '';
 let currentPage = 1;
 
+// ----------------- helpers -----------------
+
+function showError(message) {
+  iziToast.error({ message, position: 'topRight' });
+}
+
+function showInfo(message) {
+  iziToast.info({ message, position: 'topRight' });
+}
+
 // ----------------- modal call -----------------
 
 function initFurnitureModals() {
+  if (!refs.furnitureList) return;
+
   refs.furnitureList.addEventListener('click', e => {
     const btn = e.target.closest('.details-btn');
-
     if (!btn) return;
 
-    const furnitureId = btn.closest('.furniture-item').dataset.id;
+    const item = btn.closest('.furniture-item');
+    if (!item) return;
 
-    openProductModal(furnitureId);
+    const furnitureId = item.dataset.id;
+
+    if (typeof openProductModal === 'function') {
+      openProductModal(furnitureId);
+    }
   });
 }
 
@@ -55,14 +73,15 @@ const CATEGORIES_ORDER = [
 
 async function initCategories() {
   try {
-    refs.loader.classList.remove('hidden');
+    showLoader();
+
     const apiCategories = await fetchCategories();
 
     const finalCategories = CATEGORIES_ORDER.map(name => {
       const found = apiCategories.find(c => c.name.trim() === name.trim());
       return {
         _id: name === 'Всі товари' ? '' : found ? found._id : 'temp-id',
-        name: name,
+        name,
       };
     });
 
@@ -75,12 +94,9 @@ async function initCategories() {
 
     initFurnitureModals();
   } catch (error) {
-    iziToast.error({
-      message: 'Не вдалося завантажити товари. Спробуйте пізніше.',
-      position: 'topRight',
-    });
+    showError('Не вдалося завантажити товари. Спробуйте пізніше.');
   } finally {
-    refs.loader.classList.add('hidden');
+    hideLoader();
   }
 }
 
@@ -96,6 +112,7 @@ export async function renderFurnitureSection(category = '', page = 1) {
     currentPage = page;
 
     const data = await fetchFurniture(category, page);
+
     const items = data?.furnitures || [];
     const totalItems = data?.totalItems || 0;
     const limit = data?.limit || 8;
@@ -103,11 +120,13 @@ export async function renderFurnitureSection(category = '', page = 1) {
 
     if (page === 1) {
       refs.furnitureList.innerHTML = '';
+
       if (items.length === 0) {
-        iziToast.info({ message: 'Товарів не знайдено', position: 'topRight' });
+        showInfo('Товарів не знайдено');
         hideLoadMoreButton();
         return data;
       }
+
       refs.furnitureList.innerHTML = createFurnitureMarkup(items);
     } else {
       appendFurniture(refs.furnitureList, items);
@@ -120,20 +139,14 @@ export async function renderFurnitureSection(category = '', page = 1) {
     }
 
     if (page > 1 && (page >= totalPages || items.length < limit)) {
-      iziToast.info({
-        message: 'Ви досягли кінця списку',
-        position: 'topRight',
-      });
+      showInfo('Ви досягли кінця списку');
     }
 
     return data;
   } catch (error) {
-    hideLoadMoreButton();
     refs.furnitureList.innerHTML = '';
-    iziToast.error({
-      message: 'Сталася помилка. Спробуйте пізніше',
-      position: 'topRight',
-    });
+    hideLoadMoreButton();
+    showError('Сталася помилка. Спробуйте пізніше');
   } finally {
     hideLoader();
   }
@@ -154,7 +167,11 @@ async function handleCategoryClick(event) {
   currentCategory = clickedBtn.dataset.category || '';
   currentPage = 1;
 
-  await renderFurnitureSection(currentCategory, currentPage);
+  try {
+    await renderFurnitureSection(currentCategory, currentPage);
+  } catch {
+    showError('Помилка при зміні категорії');
+  }
 }
 
 refs.categoriesList.addEventListener('click', handleCategoryClick);
@@ -163,35 +180,35 @@ refs.categoriesList.addEventListener('click', handleCategoryClick);
 
 refs.loadMoreBtn.addEventListener('click', async () => {
   currentPage += 1;
+
   hideLoadMoreButton();
-  showLoader();
+  //   showLoader();
 
   try {
     await renderFurnitureSection(currentCategory, currentPage);
-  } catch (error) {
-    iziToast.error({
-      message: 'Сталася помилка. Спробуйте пізніше',
-      position: 'topRight',
-    });
-  } finally {
-    hideLoader();
+  } catch {
+    showError('Сталася помилка. Спробуйте пізніше');
   }
+
+  //   finally {
+  //     hideLoader();
+  //   }
 });
 
-// --------------- additional functions ---------------
+// --------------- UI helpers ---------------
 
 function showLoader() {
-  refs.loader.classList.add('is-visible');
+  refs.loader?.classList.add('is-visible');
 }
 
 function hideLoader() {
-  refs.loader.classList.remove('is-visible');
+  refs.loader?.classList.remove('is-visible');
 }
 
 function showLoadMoreButton() {
-  refs.loadMoreBtn.classList.add('is-visible');
+  refs.loadMoreBtn?.classList.add('is-visible');
 }
 
 function hideLoadMoreButton() {
-  refs.loadMoreBtn.classList.remove('is-visible');
+  refs.loadMoreBtn?.classList.remove('is-visible');
 }
