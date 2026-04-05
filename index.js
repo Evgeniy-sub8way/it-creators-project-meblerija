@@ -107,57 +107,57 @@ import{a as p,i as S,A as P,S as A,N as F,P as N}from"./assets/vendor-CXD_EiBz.j
         <ul class="star-container">
           <li class="star">
           <svg class="star-empty">
-                <use href="./img/star-rating.icons.svg#star-empty"></use>
+                <use href="../img/star-rating.icons.svg#star-empty"></use>
             </svg>
              <svg class="star-half">
-                <use href="./img/star-rating.icons.svg#star-half"></use>
+                <use href="../img/star-rating.icons.svg#star-half"></use>
             </svg>
             <svg class="star-filled">
-                <use href="./img/star-rating.icons.svg#star-filled"></use>
+                <use href="../img/star-rating.icons.svg#star-filled"></use>
             </svg>
           </li>
           <li class="star">
             <svg class="star-empty">
-                <use href="./img/star-rating.icons.svg#star-empty"></use>
+                <use href="../img/star-rating.icons.svg#star-empty"></use>
             </svg>
              <svg class="star-half">
-                <use href="./img/star-rating.icons.svg#star-half"></use>
+                <use href="../img/star-rating.icons.svg#star-half"></use>
             </svg>
             <svg class="star-filled">
-                <use href="./img/star-rating.icons.svg#star-filled"></use>
+                <use href="../img/star-rating.icons.svg#star-filled"></use>
             </svg>
           </li>
           <li class="star">
             <svg class="star-empty">
-                <use href="./img/star-rating.icons.svg#star-empty"></use>
+                <use href="../img/star-rating.icons.svg#star-empty"></use>
             </svg>
              <svg class="star-half">
-                <use href="./img/star-rating.icons.svg#star-half"></use>
+                <use href="../img/star-rating.icons.svg#star-half"></use>
             </svg>
             <svg class="star-filled">
-                <use href="./img/star-rating.icons.svg#star-filled"></use>
+                <use href="../img/star-rating.icons.svg#star-filled"></use>
             </svg>
           </li>
           <li class="star">
             <svg class="star-empty">
-                <use href="./img/star-rating.icons.svg#star-empty"></use>
+                <use href="../img/star-rating.icons.svg#star-empty"></use>
             </svg>
              <svg class="star-half">
-                <use href="./img/star-rating.icons.svg#star-half"></use>
+                <use href="../img/star-rating.icons.svg#star-half"></use>
             </svg>
             <svg class="star-filled">
-                <use href="./img/star-rating.icons.svg#star-filled"></use>
+                <use href="../img/star-rating.icons.svg#star-filled"></use>
             </svg>
           </li>
           <li class="star">
             <svg class="star-empty">
-                <use href="./img/star-rating.icons.svg#star-empty"></use>
+                <use href="../img/star-rating.icons.svg#star-empty"></use>
             </svg>
              <svg class="star-half">
-                <use href="./img/star-rating.icons.svg#star-half"></use>
+                <use href="../img/star-rating.icons.svg#star-half"></use>
             </svg>
             <svg class="star-filled">
-                <use href="./img/star-rating.icons.svg#star-filled"></use>
+                <use href="../img/star-rating.icons.svg#star-filled"></use>
             </svg>
           </li>
         </ul>
