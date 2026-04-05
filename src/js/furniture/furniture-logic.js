@@ -1,12 +1,4 @@
 import '../../css/furniture.css';
-import { openProductModal } from '../product-modal.js';
-
-import { fetchCategories, fetchFurniture } from './furniture-api.js';
-import {
-  createCategoriesMarkup,
-  createFurnitureMarkup,
-  appendFurniture,
-} from './furniture-render.js';
 
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
