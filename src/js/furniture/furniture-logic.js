@@ -1,5 +1,5 @@
 import '../../css/furniture.css';
-// import { openProductModal } from '../product-modal.js';
+import { openProductModal } from '../product-modal.js';
 
 import { fetchCategories, fetchFurniture } from './furniture-api.js';
 import {
@@ -45,7 +45,7 @@ function initFurnitureModals() {
     const item = btn.closest('.furniture-item');
     if (!item) return;
 
-    const furnitureId = item.dataset.id;
+    const furnitureId = btn.dataset.id;
 
     if (typeof openProductModal === 'function') {
       openProductModal(furnitureId);

@@ -43,14 +43,13 @@
   flex-wrap: wrap;
   gap: 16px;
 
-  list-style: none;
-
   margin-bottom: 40px;
 }
 
 .category-item {
   height: 122px;
   flex-basis: calc((100% - 16px) / 2);
+  overflow: hidden;
 }
 
 .category-btn {
@@ -73,18 +72,15 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-image: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.4),
-    rgba(0, 0, 0, 0.4)
-  );
 
   border: none;
   outline: none;
   border-radius: 8px;
   box-shadow: inset 0 0 0 0 transparent;
 
-  transition: transform box-shadow 250ms ease-in-out;
+  transition:
+    transform 250ms ease-in-out,
+    box-shadow 250ms ease-in-out;
 }
 
 .category-btn:hover,
@@ -382,6 +378,7 @@
   border-style: dashed solid solid dotted;
   border-color: #ff3d00 #ff3d00 transparent #ff3d00;
   border-radius: 50%;
+  pointer-events: none;
 
   position: fixed;
   top: 50%;
