@@ -1,0 +1,129 @@
+<div class="product-modal-backdrop  " data-product-backdrop>
+	<div
+		class="product-modal"
+		role="dialog"
+		aria-modal="true"
+		aria-labelledby="product-modal-title"
+		data-product-modal
+	>
+		<button
+			class="product-modal-close"
+			type="button"
+			aria-label="Закрити модальне вікно"
+		>
+			<svg class="product-modal-close-icon" width="24" height="24" aria-hidden="true">
+				<use href="./img/icons.svg#icon-close"></use>
+			</svg>
+		</button>
+
+		<div class="product-modal-content">
+			<div class="product-modal-gallery" data-product-gallery>
+				<img
+					class="product-modal-gallery-main"
+					src="./img/product-modal/bigsofa1x.jpg"
+					srcset="./img/product-modal/bigsofa1x.jpg 1x, ./img/product-modal/bigsofa2x.jpg 2x"
+					alt="Софа Oslo"
+					data-product-main-image
+				/>
+
+				<ul class="product-modal-gallery-list">
+					<li class="product-modal-gallery-item">
+						<img
+							src="./img/product-modal/cornersofa1x.jpg"
+							srcset="./img/product-modal/cornersofa1x.jpg 1x, ./img/product-modal/cornersofa2x.jpg 2x"
+							alt="Софа Oslo, вигляд 1"
+							data-product-thumb
+						/>
+					</li>
+					<li class="product-modal-gallery-item">
+						<img
+							src="./img/product-modal/smallsofa1x.jpg"
+							srcset="./img/product-modal/smallsofa1x.jpg 1x, ./img/product-modal/smallsofa2x.jpg 2x"
+							alt="Софа Oslo, вигляд 2"
+							data-product-thumb
+						/>
+					</li>
+				</ul>
+			</div>
+
+			<div class="product-modal-info">
+				<h3 id="product-modal-title" class="product-modal-title" data-product-name>
+					Софа Oslo
+				</h3>
+				<p class="product-modal-category" data-product-category>Дивани</p>
+
+				<p class="product-modal-price" data-product-price>9 999 грн</p>
+
+				<div class="product-modal-rating" aria-label="Оцінка товару" data-product-rating>
+					<span class="product-modal-star is-active" aria-hidden="true"><svg class="product-modal-star-icon" width="16" height="16"><use href="./img/icons.svg#icon-star"></use></svg></span>
+					<span class="product-modal-star is-active" aria-hidden="true"><svg class="product-modal-star-icon" width="16" height="16"><use href="./img/icons.svg#icon-star"></use></svg></span>
+					<span class="product-modal-star is-active" aria-hidden="true"><svg class="product-modal-star-icon" width="16" height="16"><use href="./img/icons.svg#icon-star"></use></svg></span>
+					<span class="product-modal-star is-active" aria-hidden="true"><svg class="product-modal-star-icon" width="16" height="16"><use href="./img/icons.svg#icon-star"></use></svg></span>
+					<span class="product-modal-star is-active" aria-hidden="true"><svg class="product-modal-star-icon" width="16" height="16"><use href="./img/icons.svg#icon-star"></use></svg></span>
+					<span class="visually-hidden" data-product-rating-value>5.0</span>
+				</div>
+
+				<fieldset class="product-modal-colors">
+					<legend class="product-modal-colors-title">Колір</legend>
+					<ul class="product-modal-colors-list" data-product-colors>
+						<li class="product-modal-colors-item">
+							<label class="product-modal-color-label">
+								<input
+									class="product-modal-color-checkbox"
+									type="checkbox"
+									name="furniture-color"
+									value="beige"
+									checked
+								/>
+								<span class="product-modal-color-swatch product-modal-color-swatch--beige" aria-hidden="true"></span>
+								<span class="visually-hidden">Бежевий</span>
+							</label>
+						</li>
+						<li class="product-modal-colors-item">
+							<label class="product-modal-color-label">
+								<input
+									class="product-modal-color-checkbox"
+									type="checkbox"
+									name="furniture-color"
+									value="white"
+								/>
+								<span class="product-modal-color-swatch product-modal-color-swatch--white" aria-hidden="true"></span>
+								<span class="visually-hidden">Білий</span>
+							</label>
+						</li>
+						<li class="product-modal-colors-item">
+							<label class="product-modal-color-label">
+								<input
+									class="product-modal-color-checkbox"
+									type="checkbox"
+									name="furniture-color"
+									value="black"
+								/>
+								<span class="product-modal-color-swatch product-modal-color-swatch--black" aria-hidden="true"></span>
+								<span class="visually-hidden">Чорний</span>
+							</label>
+						</li>
+					</ul>
+				</fieldset>
+
+				<div class="product-modal-description-block">
+					<h4 class="product-modal-subtitle">Опис</h4>
+					<p class="product-modal-description" data-product-description>
+						Класичний диван з м’якими подушками та високою спинкою, ідеальний для сімейного
+						відпочинку. Оббивка з якісної зносостійкої тканини.
+					</p>
+				</div>
+
+				<div class="product-modal-dimensions-block">
+					<p class="product-modal-dimensions" data-product-dimensions>
+						Розмір: <span data-product-width>280</span>x<span data-product-height>180</span>x<span data-product-depth>85</span>
+					</p>
+				</div>
+
+				<button class="product-modal-order-btn" type="button" data-open-order-modal>
+					Перейти до замовлення
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
