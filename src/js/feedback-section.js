@@ -48,46 +48,46 @@ function feedbackTemplate(feedback) {
           </li>
           <li class="star">
             <svg class="star-empty">
-                <use href="../img/star-rating.icons.svg#star-empty"></use>
+                <use href="/img/star-rating.icons.svg#star-empty"></use>
             </svg>
              <svg class="star-half">
-                <use href="../img/star-rating.icons.svg#star-half"></use>
+                <use href="/img/star-rating.icons.svg#star-half"></use>
             </svg>
             <svg class="star-filled">
-                <use href="../img/star-rating.icons.svg#star-filled"></use>
+                <use href="/img/star-rating.icons.svg#star-filled"></use>
             </svg>
           </li>
           <li class="star">
             <svg class="star-empty">
-                <use href="../img/star-rating.icons.svg#star-empty"></use>
+                <use href="/img/star-rating.icons.svg#star-empty"></use>
             </svg>
              <svg class="star-half">
-                <use href="../img/star-rating.icons.svg#star-half"></use>
+                <use href="/img/star-rating.icons.svg#star-half"></use>
             </svg>
             <svg class="star-filled">
-                <use href="../img/star-rating.icons.svg#star-filled"></use>
+                <use href="/img/star-rating.icons.svg#star-filled"></use>
             </svg>
           </li>
           <li class="star">
             <svg class="star-empty">
-                <use href="../img/star-rating.icons.svg#star-empty"></use>
+                <use href="/img/star-rating.icons.svg#star-empty"></use>
             </svg>
              <svg class="star-half">
-                <use href="../img/star-rating.icons.svg#star-half"></use>
+                <use href="/img/star-rating.icons.svg#star-half"></use>
             </svg>
             <svg class="star-filled">
-                <use href="../img/star-rating.icons.svg#star-filled"></use>
+                <use href="/img/star-rating.icons.svg#star-filled"></use>
             </svg>
           </li>
           <li class="star">
             <svg class="star-empty">
-                <use href="../img/star-rating.icons.svg#star-empty"></use>
+                <use href="/img/star-rating.icons.svg#star-empty"></use>
             </svg>
              <svg class="star-half">
-                <use href="../img/star-rating.icons.svg#star-half"></use>
+                <use href="/img/star-rating.icons.svg#star-half"></use>
             </svg>
             <svg class="star-filled">
-                <use href="../img/star-rating.icons.svg#star-filled"></use>
+                <use href="/img/star-rating.icons.svg#star-filled"></use>
             </svg>
           </li>
         </ul>
