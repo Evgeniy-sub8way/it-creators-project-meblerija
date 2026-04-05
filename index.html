@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Меблерія</title>
     <script type="module" crossorigin src="/it-creators-project-meblerija/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/it-creators-project-meblerija/assets/vendor-CK-IXynA.js">
-    <link rel="stylesheet" crossorigin href="/it-creators-project-meblerija/assets/vendor-BvBYX341.css">
-    <link rel="stylesheet" crossorigin href="/it-creators-project-meblerija/assets/index-Dc-yHauA.css">
+    <link rel="modulepreload" crossorigin href="/it-creators-project-meblerija/assets/vendor-BBeJe__H.js">
+    <link rel="stylesheet" crossorigin href="/it-creators-project-meblerija/assets/vendor-ynfLVuaG.css">
+    <link rel="stylesheet" crossorigin href="/it-creators-project-meblerija/assets/index-D5mi4WhF.css">
   </head>
   <body>
     <header class="header">
@@ -155,8 +155,19 @@ document.addEventListener('keydown', (e) => {
 
       <section class="furniture">
   <div class="container-furniture">
-    <h2>Furniture</h2>
+    <h2 class="title-furniture">Наші меблі</h2>
+    <p class="text-furniture">Знайдіть ідеальні рішення для вашого інтер'єру</p>
+
+    <ul class="categories-list" id="categories"></ul>
+
+    <ul class="furniture-list" id="furniture-list"></ul>
   </div>
+
+  <div class="container-pagination">
+    <button class="load-more" id="load-more" type="button">Показати ще</button>
+  </div>
+
+  <span id="loader" class="loader"></span>
 </section>
 
       <section class="about" id="about">
