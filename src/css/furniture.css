@@ -1,26 +1,457 @@
-.furniture {
-  padding: 0 20px;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.container-furniture {
+.furniture {
   padding: 48px 0;
 }
 
+.container-furniture {
+  min-width: 320px;
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ------ Header ------ */
+
+.title-furniture {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  color: #080c09;
+
+  margin-bottom: 16px;
+}
+
+.text-furniture {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #080c09;
+
+  margin-bottom: 40px;
+}
+
+/* ------ Categories ------ */
+
+.categories-list {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  margin-bottom: 40px;
+}
+
+.category-item {
+  height: 122px;
+  flex-basis: calc((100% - 16px) / 2);
+  overflow: hidden;
+}
+
+.category-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  text-align: center;
+  text-transform: none;
+  color: #ffffff;
+
+  background-origin: border-box;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 0 transparent;
+
+  transition:
+    transform 250ms ease-in-out,
+    box-shadow 250ms ease-in-out;
+}
+
+.category-btn:hover,
+.category-btn:focus {
+  opacity: 0.98;
+  transform: scale(1.02);
+}
+
+.category-btn.is-active {
+  box-shadow: inset 0 0 0 8px #6b0609;
+}
+
+.all-products {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    image-set(
+      url('../img/furniture/all-products.webp') 1x,
+      url('../img/furniture/all-products@2x.webp') 2x
+    );
+}
+
+.sofas {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    image-set(
+      url('../img/furniture/sofas.webp') 1x,
+      url('../img/furniture/sofas@2x.webp') 2x
+    );
+}
+
+.wardrobes {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    image-set(
+      url('../img/furniture/wardrobes.webp') 1x,
+      url('../img/furniture/wardrobes@2x.webp') 2x
+    );
+}
+
+.beds {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    image-set(
+      url('../img/furniture/beds.webp') 1x,
+      url('../img/furniture/beds@2x.webp') 2x
+    );
+}
+
+.tables {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    image-set(
+      url('../img/furniture/tables.webp') 1x,
+      url('../img/furniture/tables@2x.webp') 2x
+    );
+}
+
+.chairs {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    image-set(
+      url('../img/furniture/chairs.webp') 1x,
+      url('../img/furniture/chairs@2x.webp') 2x
+    );
+}
+
+.kitchens {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    image-set(
+      url('../img/furniture/kitchens.webp') 1x,
+      url('../img/furniture/kitchens@2x.webp') 2x
+    );
+}
+
+.kids {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    image-set(
+      url('../img/furniture/kids.webp') 1x,
+      url('../img/furniture/kids@2x.webp') 2x
+    );
+}
+
+.office {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    image-set(
+      url('../img/furniture/office.webp') 1x,
+      url('../img/furniture/office@2x.webp') 2x
+    );
+}
+
+.hallway {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    image-set(
+      url('../img/furniture/hallway.webp') 1x,
+      url('../img/furniture/hallway@2x.webp') 2x
+    );
+}
+
+.bathroom {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    image-set(
+      url('../img/furniture/bathroom.webp') 1x,
+      url('../img/furniture/bathroom@2x.webp') 2x
+    );
+}
+
+.outdoor {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    image-set(
+      url('../img/furniture/outdoor.webp') 1x,
+      url('../img/furniture/outdoor@2x.webp') 2x
+    );
+}
+
+.decor {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    image-set(
+      url('../img/furniture/decor.webp') 1x,
+      url('../img/furniture/decor@2x.webp') 2x
+    );
+}
+
+/* ------ Card-product ------ */
+
+.furniture-list {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.furniture-item {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.furniture-thumb {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 8px;
+
+  background-color: #f5f5f5;
+}
+
+.furniture-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.furniture-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 16px 0;
+}
+
+.furniture-heading {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #080c09;
+
+  margin-bottom: 8px;
+}
+
+.container-colors {
+  display: block;
+  margin-top: auto;
+  margin-bottom: 8px;
+}
+
+.furniture-color {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.furniture-color svg {
+  display: block;
+  flex-shrink: 0;
+
+  border: 1px solid #c7c3bb;
+  border-radius: 50%;
+}
+
+.furniture-price {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #080c09;
+
+  margin-top: auto;
+}
+
+.details-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  border-radius: 100px;
+  padding: 10px 24px;
+  height: 46px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #080c09;
+  border: none;
+  font-family: inherit;
+
+  box-shadow:
+    0 1px 2px 0 rgba(8, 12, 9, 0.05),
+    inset 0 -2px 1px 0 rgba(8, 12, 9, 0.05),
+    inset 0 0 0 1px rgba(8, 12, 9, 0.05);
+
+  background-color: rgba(8, 12, 9, 0.05);
+}
+
+.details-btn {
+  transition: background-color 0.3s ease-in-out;
+}
+
+.details-btn:hover {
+  background-color: #e2e2e2;
+}
+
+.container-pagination {
+  display: none;
+  justify-content: center;
+
+  margin: 0 auto;
+  padding: 32px 20px 0;
+}
+
+.load-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  border: none;
+  border-radius: 100px;
+  padding: 10px 24px;
+
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  max-width: 340px;
+  height: 46px;
+
+  color: #fff;
+  background-color: #6b0609;
+
+  box-shadow:
+    0 1px 2px 0 rgba(8, 12, 9, 0.05),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(8, 12, 9, 0.15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.container-pagination:has(.load-more.is-visible) {
+  display: flex;
+}
+
+.load-more:hover,
+.load-more:focus {
+  opacity: 0.5;
+}
+
+/* ------ Loader ------ */
+
+.loader {
+  width: 100px;
+  height: 100px;
+  border-width: 8px;
+  border-style: dashed solid solid dotted;
+  border-color: #ff3d00 #ff3d00 transparent #ff3d00;
+  border-radius: 50%;
+  pointer-events: none;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  animation: rotation 1s linear infinite;
+
+  opacity: 0;
+  z-index: 9999;
+}
+
+.loader.is-visible {
+  opacity: 1;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ------ Media ------ */
+
 @media screen and (min-width: 768px) {
   .furniture {
-    padding: 0 32px;
+    padding: 48px 0;
   }
 
   .container-furniture {
-    padding: 48px 0;
+    max-width: 768px;
+    padding: 0 32px;
+  }
+
+  .categories-list {
+    gap: 24px;
+  }
+  .category-item {
+    flex-basis: calc((100% - 72px) / 4);
+    height: 140px;
+  }
+
+  .furniture-item {
+    flex-basis: calc((100% - 24px) / 2);
   }
 }
 
 @media screen and (min-width: 1440px) {
   .furniture {
-    padding: 0 64px;
+    padding: 80px 0;
   }
   .container-furniture {
-    padding: 80px 0;
+    max-width: 1440px;
+    padding: 0 64px;
+  }
+
+  .title-furniture {
+    font-size: 48px;
+  }
+
+  .category-item {
+    flex-basis: calc((100% - 144px) / 7);
+    height: 140px;
+  }
+
+  .furniture-item {
+    flex-basis: calc((100% - 72px) / 4);
+  }
+
+  .load-more {
+    max-width: 421px;
   }
 }
