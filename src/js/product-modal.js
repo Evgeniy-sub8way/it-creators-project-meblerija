@@ -71,6 +71,7 @@ const state = {
   isOpen: false,
   lastFocusedEl: null,
   requestId: 0,
+  activeModelId: '',
 };
 
 if (refs.backdrop && refs.modal) {
@@ -95,8 +96,12 @@ function bindStaticEvents() {
   });
 
   refs.orderBtn?.addEventListener('click', () => {
+    const detail = {
+      modelId: state.activeModelId || '',
+      color: getSelectedColorHex(),
+    };
     closeProductModal();
-    openOrderModal();
+    document.dispatchEvent(new CustomEvent('open-order-modal', { detail }));
   });
 
   refs.galleryList?.addEventListener('click', onGalleryThumbClick);
@@ -160,6 +165,7 @@ function closeProductModal() {
   refs.backdrop.classList.add('is-hidden');
   document.body.style.overflow = '';
   state.isOpen = false;
+  state.activeModelId = '';
 
   if (state.lastFocusedEl && typeof state.lastFocusedEl.focus === 'function') {
     state.lastFocusedEl.focus();
@@ -176,6 +182,15 @@ function renderFurniture(furniture) {
   renderRating(furniture.rate);
   renderGallery(furniture.images || []);
   renderColors(furniture.color || []);
+  state.activeModelId = String(furniture._id || furniture.id || '');
+}
+
+function getSelectedColorHex() {
+  if (!refs.colorsList) return '';
+  const checked = refs.colorsList.querySelector(
+    '.product-modal-color-checkbox:checked'
+  );
+  return checked?.value || '';
 }
 
 function renderTextContent(furniture) {
@@ -391,17 +406,6 @@ function normalizeFurniture(furniture) {
         ? { _id: '', name: furniture.category }
         : furniture.category || { _id: '', name: furniture.type || '' },
   };
-}
-
-function openOrderModal() {
-  const orderBackdrop = document.querySelector('[data-order-backdrop]');
-  if (orderBackdrop) {
-    orderBackdrop.classList.remove('is-hidden');
-    document.body.style.overflow = 'hidden';
-    return;
-  }
-
-  document.dispatchEvent(new CustomEvent('open-order-modal'));
 }
 
 window.ProductModal = {
