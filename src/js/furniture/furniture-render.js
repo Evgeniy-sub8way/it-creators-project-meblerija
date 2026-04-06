@@ -67,7 +67,7 @@ export function createFurnitureMarkup(items) {
                </div>
                     <p class="furniture-price">${price} грн</p>
           </div>
-             <button class="details-btn" data-id="${_id}" type="button">Детальніше</button>
+             <button class="details-btn btn-furniture" data-id="${_id}" type="button">Детальніше</button>
         </li>
       `;
     })

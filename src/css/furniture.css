@@ -260,7 +260,7 @@
 }
 
 .container-colors {
-  display: block;
+  display: flex;
   margin-top: auto;
   margin-bottom: 8px;
 }
@@ -288,7 +288,7 @@
   margin-top: auto;
 }
 
-.details-btn {
+.btn-furniture {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -301,24 +301,29 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 1.6;
-  color: #080c09;
   border: none;
   font-family: inherit;
 
+  transition:
+    transform 0.3s ease-in-out,
+    background-color 0.3s ease-in-out,
+    opacity 0.3s ease-in-out;
+}
+
+.details-btn {
+  color: #080c09;
+  background-color: rgba(8, 12, 9, 0.05);
   box-shadow:
     0 1px 2px 0 rgba(8, 12, 9, 0.05),
     inset 0 -2px 1px 0 rgba(8, 12, 9, 0.05),
     inset 0 0 0 1px rgba(8, 12, 9, 0.05);
-
-  background-color: rgba(8, 12, 9, 0.05);
 }
 
-.details-btn {
-  transition: background-color 0.3s ease-in-out;
-}
-
-.details-btn:hover {
+.details-btn:hover,
+.details-btn:focus {
   background-color: #e2e2e2;
+  transform: scale(0.96);
+  outline: none;
 }
 
 .container-pagination {
@@ -330,34 +335,15 @@
 }
 
 .load-more {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-
-  border: none;
-  border-radius: 100px;
-  padding: 10px 24px;
-
-  font-family: inherit;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 26px;
   max-width: 340px;
-  height: 46px;
-
   color: #fff;
   background-color: #6b0609;
-
   box-shadow:
     0 1px 2px 0 rgba(8, 12, 9, 0.05),
     inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
     inset 0 0 0 1px rgba(8, 12, 9, 0.15),
     inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
     inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
-
-  opacity: 1;
-  transition: opacity 0.3s ease-in-out;
 }
 
 .container-pagination:has(.load-more.is-visible) {
@@ -367,6 +353,7 @@
 .load-more:hover,
 .load-more:focus {
   opacity: 0.5;
+  transform: scale(0.98);
 }
 
 /* ------ Loader ------ */
@@ -388,7 +375,7 @@
   animation: rotation 1s linear infinite;
 
   opacity: 0;
-  z-index: 9999;
+  z-index: 999;
 }
 
 .loader.is-visible {
@@ -407,10 +394,6 @@
 /* ------ Media ------ */
 
 @media screen and (min-width: 768px) {
-  .furniture {
-    padding: 48px 0;
-  }
-
   .container-furniture {
     max-width: 768px;
     padding: 0 32px;

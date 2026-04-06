@@ -1,5 +1,9 @@
-Product Modal .product-modal-backdrop {
-  position: fixed;
+Product Modal .container-furniture {
+  position: relative;
+}
+
+.product-modal-backdrop {
+  position: absolute;
   inset: 0;
   z-index: 1000;
   display: flex;
