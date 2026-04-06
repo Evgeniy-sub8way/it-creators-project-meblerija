@@ -1,387 +1,414 @@
-import { getFurnitureById as fetchFurnitureById } from './api';
-
 const MOCK_FURNITURE = [
-	{
-		_id: '682f9bbf8acbdf505592ac36',
-		name: 'Диван "Комфорт Плюс"',
-		rate: 4.8,
-		price: 9999,
-		sizes: '220x95x90',
-		category: { _id: '66504a50a1b2c3d4e5f6a7b9', name: 'Дивани' },
-		description:
-			'Класичний диван з м’якими подушками та високою спинкою, ідеальний для сімейного відпочинку. Оббивка з якісної зносостійкої тканини.',
-		images: [
-			'./img/product-modal/bigsofa1x.jpg',
-			'./img/product-modal/cornersofa1x.jpg',
-			'./img/product-modal/smallsofa1x.jpg',
-		],
-		color: ['#c7c3bb', '#ffffff', '#201a19'],
-	},
-	{
-		_id: '682f9bbf8acbdf505592ac37',
-		name: 'Крісло Comfort',
-		rate: 4.5,
-		price: 2499,
-		sizes: '85x110x90',
-		category: { _id: '66504a50a1b2c3d4e5f6a7ba', name: 'Крісла' },
-		description:
-			'Зручне крісло з опорою для спини. Підходить для робочого кабінету або вітальні. Екологічна тканина.',
-		images: [
-			'./img/product-modal/cornersofa1x.jpg',
-			'./img/product-modal/bigsofa1x.jpg',
-		],
-		color: ['#c7c3bb', '#201a19'],
-	},
-	{
-		_id: '682f9bbf8acbdf505592ac38',
-		name: 'Ліжко Premium',
-		rate: 5,
-		price: 15999,
-		sizes: '160x50x200',
-		category: { _id: '66504a50a1b2c3d4e5f6a7bb', name: 'Ліжка' },
-		description: 'Ортопедичне ліжко з матрацом. Покращує якість сну. Розмір: 160х200 см.',
-		images: [
-			'./img/product-modal/smallsofa1x.jpg',
-			'./img/product-modal/bigsofa1x.jpg',
-		],
-		color: ['#201a19', '#ffffff'],
-	},
+  {
+    _id: '682f9bbf8acbdf505592ac36',
+    name: 'Диван "Комфорт Плюс"',
+    rate: 4.8,
+    price: 9999,
+    sizes: '220x95x90',
+    category: { _id: '66504a50a1b2c3d4e5f6a7b9', name: 'Дивани' },
+    description:
+      'Класичний диван з м’якими подушками та високою спинкою, ідеальний для сімейного відпочинку. Оббивка з якісної зносостійкої тканини.',
+    images: [
+      './img/product-modal/bigsofa1x.jpg',
+      './img/product-modal/cornersofa1x.jpg',
+      './img/product-modal/smallsofa1x.jpg',
+    ],
+    color: ['#c7c3bb', '#ffffff', '#201a19'],
+  },
+  {
+    _id: '682f9bbf8acbdf505592ac37',
+    name: 'Крісло Comfort',
+    rate: 4.5,
+    price: 2499,
+    sizes: '85x110x90',
+    category: { _id: '66504a50a1b2c3d4e5f6a7ba', name: 'Крісла' },
+    description:
+      'Зручне крісло з опорою для спини. Підходить для робочого кабінету або вітальні. Екологічна тканина.',
+    images: [
+      './img/product-modal/cornersofa1x.jpg',
+      './img/product-modal/bigsofa1x.jpg',
+    ],
+    color: ['#c7c3bb', '#201a19'],
+  },
+  {
+    _id: '682f9bbf8acbdf505592ac38',
+    name: 'Ліжко Premium',
+    rate: 5,
+    price: 15999,
+    sizes: '160x50x200',
+    category: { _id: '66504a50a1b2c3d4e5f6a7bb', name: 'Ліжка' },
+    description:
+      'Ортопедичне ліжко з матрацом. Покращує якість сну. Розмір: 160х200 см.',
+    images: [
+      './img/product-modal/smallsofa1x.jpg',
+      './img/product-modal/bigsofa1x.jpg',
+    ],
+    color: ['#201a19', '#ffffff'],
+  },
 ];
 
 const refs = {
-	backdrop: document.querySelector('[data-product-backdrop]'),
-	modal: document.querySelector('[data-product-modal]'),
-	closeBtn: document.querySelector('.product-modal-close'),
-	orderBtn: document.querySelector('[data-open-order-modal]'),
-	gallery: document.querySelector('[data-product-gallery]'),
-	mainImage: document.querySelector('[data-product-main-image]'),
-	galleryList: document.querySelector('.product-modal-gallery-list'),
-	name: document.querySelector('[data-product-name]'),
-	category: document.querySelector('[data-product-category]'),
-	price: document.querySelector('[data-product-price]'),
-	ratingWrap: document.querySelector('[data-product-rating]'),
-	ratingValue: document.querySelector('[data-product-rating-value]'),
-	colorsList: document.querySelector('[data-product-colors]'),
-	description: document.querySelector('[data-product-description]'),
-	width: document.querySelector('[data-product-width]'),
-	height: document.querySelector('[data-product-height]'),
-	depth: document.querySelector('[data-product-depth]'),
+  backdrop: document.querySelector('[data-product-backdrop]'),
+  modal: document.querySelector('[data-product-modal]'),
+  closeBtn: document.querySelector('.product-modal-close'),
+  orderBtn: document.querySelector('[data-open-order-modal]'),
+  gallery: document.querySelector('[data-product-gallery]'),
+  mainImage: document.querySelector('[data-product-main-image]'),
+  galleryList: document.querySelector('.product-modal-gallery-list'),
+  name: document.querySelector('[data-product-name]'),
+  category: document.querySelector('[data-product-category]'),
+  price: document.querySelector('[data-product-price]'),
+  ratingWrap: document.querySelector('[data-product-rating]'),
+  ratingValue: document.querySelector('[data-product-rating-value]'),
+  colorsList: document.querySelector('[data-product-colors]'),
+  description: document.querySelector('[data-product-description]'),
+  width: document.querySelector('[data-product-width]'),
+  height: document.querySelector('[data-product-height]'),
+  depth: document.querySelector('[data-product-depth]'),
 };
 
 const state = {
-	isOpen: false,
-	lastFocusedEl: null,
-	requestId: 0,
+  isOpen: false,
+  lastFocusedEl: null,
+  requestId: 0,
 };
 
 if (refs.backdrop && refs.modal) {
-	ensureLoader();
-	bindStaticEvents();
-	bindOpenTriggers();
+  ensureLoader();
+  bindStaticEvents();
+  bindOpenTriggers();
 }
 
 function bindStaticEvents() {
-	refs.closeBtn?.addEventListener('click', closeProductModal);
+  refs.closeBtn?.addEventListener('click', closeProductModal);
 
-	refs.backdrop?.addEventListener('click', event => {
-		if (event.target === refs.backdrop) {
-			closeProductModal();
-		}
-	});
+  refs.backdrop?.addEventListener('click', event => {
+    if (event.target === refs.backdrop) {
+      closeProductModal();
+    }
+  });
 
-	document.addEventListener('keydown', event => {
-		if (event.key === 'Escape' && state.isOpen) {
-			closeProductModal();
-		}
-	});
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && state.isOpen) {
+      closeProductModal();
+    }
+  });
 
-	refs.orderBtn?.addEventListener('click', () => {
-		closeProductModal();
-		openOrderModal();
-	});
+  refs.orderBtn?.addEventListener('click', () => {
+    closeProductModal();
+    openOrderModal();
+  });
 
-	refs.galleryList?.addEventListener('click', onGalleryThumbClick);
-	refs.colorsList?.addEventListener('change', onColorChange);
+  refs.galleryList?.addEventListener('click', onGalleryThumbClick);
+  refs.colorsList?.addEventListener('change', onColorChange);
 }
 
 function bindOpenTriggers() {
-	document.addEventListener('click', event => {
-		const trigger = event.target.closest('[data-open-product-modal], [data-open-product]');
-		if (!trigger) return;
+  document.addEventListener('click', event => {
+    const trigger = event.target.closest(
+      '[data-open-product-modal], [data-open-product]'
+    );
+    if (!trigger) return;
 
-		event.preventDefault();
-		const id = trigger.dataset.productId || trigger.getAttribute('data-product-id') || '682f9bbf8acbdf505592ac36';
-		openProductModal(id);
-	});
+    event.preventDefault();
+    const id =
+      trigger.dataset.productId ||
+      trigger.getAttribute('data-product-id') ||
+      '682f9bbf8acbdf505592ac36';
+    openProductModal(id);
+  });
 }
 
-async function openProductModal(id = '682f9bbf8acbdf505592ac36') {
-	state.lastFocusedEl = document.activeElement;
-	showBackdrop();
-	showLoader(true);
+// ================= Open Product Modal =================
+export async function openProductModal(id) {
+  state.lastFocusedEl = document.activeElement;
 
-	const currentRequestId = ++state.requestId;
+  showBackdrop();
+  showLoader(true);
 
-	try {
-		const furniture = await getFurnitureById(id);
+  const currentRequestId = ++state.requestId;
 
-		if (currentRequestId !== state.requestId) return;
+  try {
+    const response = await fetch(
+      `https://furniture-store-v2.b.goit.study/api/furnitures/${id}`
+    );
+    const data = await response.json();
 
-		renderFurniture(furniture);
-		state.isOpen = true;
-		refs.closeBtn?.focus();
-		return furniture;
-	} catch {
-		closeProductModal();
-		showErrorToast('Не вдалося завантажити інформацію про товар. Спробуйте пізніше.');
-		return null;
-	} finally {
-		showLoader(false);
-	}
+    if (currentRequestId !== state.requestId) return;
+
+    renderFurniture(data);
+    state.isOpen = true;
+
+    refs.closeBtn?.focus();
+  } catch (error) {
+    console.error('Error fetching product:', error);
+
+    closeProductModal();
+    showErrorToast(
+      'Не вдалося завантажити інформацію про товар. Спробуйте пізніше.'
+    );
+  } finally {
+    showLoader(false);
+  }
 }
+
+// ==================================
 
 function closeProductModal() {
-	if (!refs.backdrop) return;
+  if (!refs.backdrop) return;
 
-	refs.backdrop.classList.add('is-hidden');
-	document.body.style.overflow = '';
-	state.isOpen = false;
+  refs.backdrop.classList.add('is-hidden');
+  document.body.style.overflow = '';
+  state.isOpen = false;
 
-	if (state.lastFocusedEl && typeof state.lastFocusedEl.focus === 'function') {
-		state.lastFocusedEl.focus();
-	}
+  if (state.lastFocusedEl && typeof state.lastFocusedEl.focus === 'function') {
+    state.lastFocusedEl.focus();
+  }
 }
 
 function showBackdrop() {
-	refs.backdrop.classList.remove('is-hidden');
-	document.body.style.overflow = 'hidden';
+  refs.backdrop.classList.remove('is-hidden');
+  document.body.style.overflow = 'hidden';
 }
 
 function renderFurniture(furniture) {
-	renderTextContent(furniture);
-	renderRating(furniture.rate);
-	renderGallery(furniture.images || []);
-	renderColors(furniture.color || []);
+  renderTextContent(furniture);
+  renderRating(furniture.rate);
+  renderGallery(furniture.images || []);
+  renderColors(furniture.color || []);
 }
 
 function renderTextContent(furniture) {
-	if (refs.name) refs.name.textContent = furniture.name || '';
-	if (refs.category) refs.category.textContent = furniture.category?.name || '';
-	if (refs.price) refs.price.textContent = formatPriceUAH(furniture.price);
-	if (refs.description) refs.description.textContent = furniture.description || '';
+  if (refs.name) refs.name.textContent = furniture.name || '';
+  if (refs.category) refs.category.textContent = furniture.category?.name || '';
+  if (refs.price) refs.price.textContent = formatPriceUAH(furniture.price);
+  if (refs.description)
+    refs.description.textContent = furniture.description || '';
 
-	// Парсимо sizes: "220x95x90" => { width, height, depth }
-	if (furniture.sizes) {
-		const [w, h, d] = furniture.sizes.split('x').map(s => s.trim());
-		if (refs.width) refs.width.textContent = w || '-';
-		if (refs.height) refs.height.textContent = h || '-';
-		if (refs.depth) refs.depth.textContent = d || '-';
-	}
+  // Парсимо sizes: "220x95x90" => { width, height, depth }
+  if (furniture.sizes) {
+    const [w, h, d] = furniture.sizes.split('x').map(s => s.trim());
+    if (refs.width) refs.width.textContent = w || '-';
+    if (refs.height) refs.height.textContent = h || '-';
+    if (refs.depth) refs.depth.textContent = d || '-';
+  }
 }
 
 function renderRating(rating = 0) {
-	if (!refs.ratingWrap) return;
+  if (!refs.ratingWrap) return;
 
-	const rounded = Math.round(Number(rating));
-	const value = Number.isFinite(Number(rating)) ? Number(rating).toFixed(1) : '0.0';
+  const rounded = Math.round(Number(rating));
+  const value = Number.isFinite(Number(rating))
+    ? Number(rating).toFixed(1)
+    : '0.0';
 
-	const stars = refs.ratingWrap.querySelectorAll('.product-modal-star');
-	stars.forEach((star, index) => {
-		star.classList.toggle('is-active', index < rounded);
-	});
+  const stars = refs.ratingWrap.querySelectorAll('.product-modal-star');
+  stars.forEach((star, index) => {
+    star.classList.toggle('is-active', index < rounded);
+  });
 
-	if (refs.ratingValue) refs.ratingValue.textContent = value;
+  if (refs.ratingValue) refs.ratingValue.textContent = value;
 }
 
 function renderGallery(images) {
-	if (!refs.mainImage || !refs.galleryList || !images.length) return;
+  if (!refs.mainImage || !refs.galleryList || !images.length) return;
 
-	const [mainImageUrl, ...thumbUrls] = images;
-	setMainImage(mainImageUrl);
+  const [mainImageUrl, ...thumbUrls] = images;
+  setMainImage(mainImageUrl);
 
-	const thumbElements = refs.galleryList.querySelectorAll('[data-product-thumb]');
-	thumbElements.forEach((thumbEl, index) => {
-		const imageUrl = thumbUrls[index];
-		if (!imageUrl) return;
+  const thumbElements = refs.galleryList.querySelectorAll(
+    '[data-product-thumb]'
+  );
+  thumbElements.forEach((thumbEl, index) => {
+    const imageUrl = thumbUrls[index];
+    if (!imageUrl) return;
 
-		thumbEl.src = imageUrl;
-		thumbEl.srcset = imageUrl;
-		thumbEl.alt = `Фото ${index + 1}`;
-		thumbEl.dataset.index = String(index + 1);
-	});
+    thumbEl.src = imageUrl;
+    thumbEl.srcset = imageUrl;
+    thumbEl.alt = `Фото ${index + 1}`;
+    thumbEl.dataset.index = String(index + 1);
+  });
 
-	refs.gallery.dataset.images = JSON.stringify(images);
+  refs.gallery.dataset.images = JSON.stringify(images);
 }
 
 function onGalleryThumbClick(event) {
-	const thumb = event.target.closest('[data-product-thumb]');
-	if (!thumb || !refs.gallery) return;
+  const thumb = event.target.closest('[data-product-thumb]');
+  if (!thumb || !refs.gallery) return;
 
-	const images = JSON.parse(refs.gallery.dataset.images || '[]');
-	const index = Number(thumb.dataset.index);
-	if (!images[index]) return;
+  const images = JSON.parse(refs.gallery.dataset.images || '[]');
+  const index = Number(thumb.dataset.index);
+  if (!images[index]) return;
 
-	setMainImage(images[index]);
+  setMainImage(images[index]);
 }
 
 function setMainImage(imageUrl) {
-	if (!refs.mainImage || !imageUrl) return;
+  if (!refs.mainImage || !imageUrl) return;
 
-	refs.mainImage.src = imageUrl;
-	refs.mainImage.srcset = imageUrl;
-	refs.mainImage.alt = 'Фото товару';
+  refs.mainImage.src = imageUrl;
+  refs.mainImage.srcset = imageUrl;
+  refs.mainImage.alt = 'Фото товару';
 }
 
 function renderColors(hexColors) {
-	if (!refs.colorsList) return;
+  if (!refs.colorsList) return;
 
-	const checkboxes = refs.colorsList.querySelectorAll('.product-modal-color-checkbox');
-	const swatches = refs.colorsList.querySelectorAll('.product-modal-color-swatch');
-	const labels = refs.colorsList.querySelectorAll('.visually-hidden');
+  const checkboxes = refs.colorsList.querySelectorAll(
+    '.product-modal-color-checkbox'
+  );
+  const swatches = refs.colorsList.querySelectorAll(
+    '.product-modal-color-swatch'
+  );
+  const labels = refs.colorsList.querySelectorAll('.visually-hidden');
 
-	// Map hex до стилів (може розширитися за потребою)
-	const hexToClass = {
-		'#c7c3bb': 'product-modal-color-swatch--beige',
-		'#ffffff': 'product-modal-color-swatch--white',
-		'#201a19': 'product-modal-color-swatch--black',
-	};
+  // Map hex до стилів (може розширитися за потребою)
+  const hexToClass = {
+    '#c7c3bb': 'product-modal-color-swatch--beige',
+    '#ffffff': 'product-modal-color-swatch--white',
+    '#201a19': 'product-modal-color-swatch--black',
+  };
 
-	checkboxes.forEach((checkbox, index) => {
-		const hexColor = hexColors[index];
-		if (!hexColor) return;
+  checkboxes.forEach((checkbox, index) => {
+    const hexColor = hexColors[index];
+    if (!hexColor) return;
 
-		checkbox.value = hexColor;
-		checkbox.checked = index === 0;
+    checkbox.value = hexColor;
+    checkbox.checked = index === 0;
 
-		if (swatches[index]) {
-			const swatchClass = hexToClass[hexColor] || 'product-modal-color-swatch--beige';
-			swatches[index].className = `product-modal-color-swatch ${swatchClass}`;
-			swatches[index].style.backgroundColor = hexColor;
-		}
+    if (swatches[index]) {
+      const swatchClass =
+        hexToClass[hexColor] || 'product-modal-color-swatch--beige';
+      swatches[index].className = `product-modal-color-swatch ${swatchClass}`;
+      swatches[index].style.backgroundColor = hexColor;
+    }
 
-		if (labels[index]) {
-			labels[index].textContent = hexColor;
-		}
-	});
+    if (labels[index]) {
+      labels[index].textContent = hexColor;
+    }
+  });
 }
 
 function onColorChange(event) {
-	const changed = event.target.closest('.product-modal-color-checkbox');
-	if (!changed || !refs.colorsList) return;
+  const changed = event.target.closest('.product-modal-color-checkbox');
+  if (!changed || !refs.colorsList) return;
 
-	const allCheckboxes = refs.colorsList.querySelectorAll('.product-modal-color-checkbox');
-	allCheckboxes.forEach(item => {
-		item.checked = item === changed;
-	});
+  const allCheckboxes = refs.colorsList.querySelectorAll(
+    '.product-modal-color-checkbox'
+  );
+  allCheckboxes.forEach(item => {
+    item.checked = item === changed;
+  });
 }
 
 function ensureLoader() {
-	if (!refs.modal || refs.modal.querySelector('.product-modal-loader')) return;
+  if (!refs.modal || refs.modal.querySelector('.product-modal-loader')) return;
 
-	const loader = document.createElement('div');
-	loader.className = 'product-modal-loader';
-	loader.setAttribute('aria-hidden', 'true');
-	refs.modal.appendChild(loader);
+  const loader = document.createElement('div');
+  loader.className = 'product-modal-loader';
+  loader.setAttribute('aria-hidden', 'true');
+  refs.modal.appendChild(loader);
 }
 
 function showLoader(isVisible) {
-	const loader = refs.modal?.querySelector('.product-modal-loader');
-	if (!loader) return;
+  const loader = refs.modal?.querySelector('.product-modal-loader');
+  if (!loader) return;
 
-	loader.classList.toggle('is-visible', isVisible);
-	loader.setAttribute('aria-hidden', String(!isVisible));
+  loader.classList.toggle('is-visible', isVisible);
+  loader.setAttribute('aria-hidden', String(!isVisible));
 }
 
 function showErrorToast(message) {
-	if (window.iziToast?.error) {
-		window.iziToast.error({
-			title: 'Помилка',
-			message,
-			position: 'topRight',
-			timeout: 3500,
-		});
-		return;
-	}
+  if (window.iziToast?.error) {
+    window.iziToast.error({
+      title: 'Помилка',
+      message,
+      position: 'topRight',
+      timeout: 3500,
+    });
+    return;
+  }
 
-	alert(message);
+  alert(message);
 }
 
 function formatPriceUAH(price) {
-	return `${new Intl.NumberFormat('uk-UA').format(Number(price || 0))} грн`;
+  return `${new Intl.NumberFormat('uk-UA').format(Number(price || 0))} грн`;
 }
 
 async function getFurnitureById(id) {
-	const mockFurniture = MOCK_FURNITURE.find(item => item._id === String(id));
-	if (mockFurniture) return mockFurniture;
+  const mockFurniture = MOCK_FURNITURE.find(item => item._id === String(id));
+  if (mockFurniture) return mockFurniture;
 
-	try {
-		const apiFurniture = await fetchFurnitureById(id);
-		return normalizeFurniture(apiFurniture);
-	} catch (error) {
-		throw error;
-	}
+  try {
+    const apiFurniture = await fetchFurnitureById(id);
+    return normalizeFurniture(apiFurniture);
+  } catch (error) {
+    throw error;
+  }
 }
 
 function normalizeFurniture(furniture) {
-	if (!furniture || typeof furniture !== 'object') return furniture;
+  if (!furniture || typeof furniture !== 'object') return furniture;
 
-	const imageUrls = Array.isArray(furniture.images)
-		? furniture.images
-				.map(image => {
-					if (typeof image === 'string') return image;
-					if (image && typeof image === 'object') return image.src || '';
-					return '';
-				})
-				.filter(Boolean)
-		: [];
+  const imageUrls = Array.isArray(furniture.images)
+    ? furniture.images
+        .map(image => {
+          if (typeof image === 'string') return image;
+          if (image && typeof image === 'object') return image.src || '';
+          return '';
+        })
+        .filter(Boolean)
+    : [];
 
-	const colorValues = Array.isArray(furniture.color)
-		? furniture.color
-		: Array.isArray(furniture.colors)
-			? furniture.colors
-					.map(color => {
-						if (typeof color === 'string') return color;
-						if (color && typeof color === 'object') return color.value || '';
-						return '';
-					})
-					.filter(Boolean)
-			: [];
+  const colorValues = Array.isArray(furniture.color)
+    ? furniture.color
+    : Array.isArray(furniture.colors)
+      ? furniture.colors
+          .map(color => {
+            if (typeof color === 'string') return color;
+            if (color && typeof color === 'object') return color.value || '';
+            return '';
+          })
+          .filter(Boolean)
+      : [];
 
-	const hasSizes = typeof furniture.sizes === 'string' && furniture.sizes.includes('x');
-	const fallbackSizes = furniture.dimensions
-		? `${furniture.dimensions.width ?? '-'}x${furniture.dimensions.height ?? '-'}x${furniture.dimensions.depth ?? '-'}`
-		: '-x-x-';
+  const hasSizes =
+    typeof furniture.sizes === 'string' && furniture.sizes.includes('x');
+  const fallbackSizes = furniture.dimensions
+    ? `${furniture.dimensions.width ?? '-'}x${furniture.dimensions.height ?? '-'}x${furniture.dimensions.depth ?? '-'}`
+    : '-x-x-';
 
-	return {
-		...furniture,
-		_id: furniture._id || furniture.id || '',
-		rate: Number(furniture.rate ?? furniture.rating ?? 0),
-		sizes: hasSizes ? furniture.sizes : fallbackSizes,
-		images: imageUrls,
-		color: colorValues,
-		category:
-			typeof furniture.category === 'string'
-				? { _id: '', name: furniture.category }
-				: furniture.category || { _id: '', name: furniture.type || '' },
-	};
+  return {
+    ...furniture,
+    _id: furniture._id || furniture.id || '',
+    rate: Number(furniture.rate ?? furniture.rating ?? 0),
+    sizes: hasSizes ? furniture.sizes : fallbackSizes,
+    images: imageUrls,
+    color: colorValues,
+    category:
+      typeof furniture.category === 'string'
+        ? { _id: '', name: furniture.category }
+        : furniture.category || { _id: '', name: furniture.type || '' },
+  };
 }
 
 function openOrderModal() {
-	const orderBackdrop = document.querySelector('[data-order-backdrop]');
-	if (orderBackdrop) {
-		orderBackdrop.classList.remove('is-hidden');
-		document.body.style.overflow = 'hidden';
-		return;
-	}
+  const orderBackdrop = document.querySelector('[data-order-backdrop]');
+  if (orderBackdrop) {
+    orderBackdrop.classList.remove('is-hidden');
+    document.body.style.overflow = 'hidden';
+    return;
+  }
 
-	document.dispatchEvent(new CustomEvent('open-order-modal'));
+  document.dispatchEvent(new CustomEvent('open-order-modal'));
 }
 
 window.ProductModal = {
-	openById: openProductModal,
-	close: closeProductModal,
-	// Для тестування: window.ProductModal.updateMock(newFurniture)
-	updateMock(data) {
-		MOCK_FURNITURE.push(data);
-	},
+  openById: openProductModal,
+  close: closeProductModal,
+  // Для тестування: window.ProductModal.updateMock(newFurniture)
+  updateMock(data) {
+    MOCK_FURNITURE.push(data);
+  },
 };

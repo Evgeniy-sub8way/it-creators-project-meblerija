@@ -1,5 +1,6 @@
 import '../../css/furniture.css';
 
+import { openProductModal } from '../product-modal.js';
 import { fetchCategories, fetchFurniture } from './furniture-api.js';
 import {
   createCategoriesMarkup,
@@ -25,11 +26,11 @@ let currentPage = 1;
 // ----------------- helpers -----------------
 
 function showError(message) {
-  iziToast.error({ message, position: 'topRight' });
+  iziToast.error({ message, position: 'topRight', maxWidth: 400, close: true });
 }
 
 function showInfo(message) {
-  iziToast.info({ message, position: 'topRight' });
+  iziToast.info({ message, position: 'topRight', maxWidth: 400, close: true });
 }
 
 // ----------------- modal call -----------------
@@ -41,14 +42,12 @@ function initFurnitureModals() {
     const btn = e.target.closest('.details-btn');
     if (!btn) return;
 
-    const item = btn.closest('.furniture-item');
-    if (!item) return;
-
     const furnitureId = btn.dataset.id;
-
-    if (typeof openProductModal === 'function') {
-      openProductModal(furnitureId);
+    if (!furnitureId) {
+      showInfo('На жаль, інформація про цей товар недоступна.');
+      return;
     }
+    openProductModal(furnitureId);
   });
 }
 

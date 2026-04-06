@@ -1,4 +1,4 @@
-// ---------- Categories-markup ---------- 
+// ---------- Categories-markup ----------
 
 const SLUGS = [
   'all-products',
@@ -36,14 +36,15 @@ export function createCategoriesMarkup(categories) {
 
 // ---------- Card-markup ----------
 
-export function createFurnitureMarkup(items) { return items
-  .map(item => {
-    const { _id, name, images = [], color = [], price = 0 } = item;
-    const imgSrc = images[0] || 'placeholder.jpg';
-    const colors = Array.isArray(color) ? color : [color];
+export function createFurnitureMarkup(items) {
+  return items
+    .map(item => {
+      const { _id, name, images = [], color = [], price = 0 } = item;
+      const imgSrc = images[0] || 'placeholder.jpg';
+      const colors = Array.isArray(color) ? color : [color];
 
-    return `
-        <li class="furniture-item" data-id="${_id}">
+      return `
+        <li class="furniture-item">
           <div class="furniture-thumb">
             <img src="${imgSrc}" alt="${name}" loading="lazy" />
           </div>
@@ -66,12 +67,12 @@ export function createFurnitureMarkup(items) { return items
                </div>
                     <p class="furniture-price">${price} грн</p>
           </div>
-             <button class="details-btn" type="button">Детальніше</button>
+             <button class="details-btn btn-furniture" data-id="${_id}" type="button">Детальніше</button>
         </li>
       `;
-  })
-  .join('');}
-
+    })
+    .join('');
+}
 
 export function appendFurniture(container, items) {
   container.insertAdjacentHTML('beforeend', createFurnitureMarkup(items));
