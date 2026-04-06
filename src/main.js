@@ -1,5 +1,5 @@
 import './js/furniture/furniture-logic.js';
-import './js/api';
+import './js/api.js';
 import './js/menu.js';
 import './js/order-modal.js';
 import './js/product-modal.js';
