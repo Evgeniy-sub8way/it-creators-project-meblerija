@@ -501,6 +501,37 @@ document.addEventListener('keydown', (e) => {
   </div>
 </div>
 
+    <section class="order-modal-backdrop is-hidden" data-order-modal>
+    <div class="order-modal" role="dialog" aria-modal="true" aria-labelledby="order-modal-title" tabindex="-1">
+        <button type="button" class="order-modal__close" data-order-modal-close aria-label="Закрити">
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+        <h2 class="order-modal__title" id="order-modal-title">Замовити</h2>
+
+        <form class="order-form" data-order-form novalidate>
+            <label class="order-form__field">
+                <span class="order-form__label">Ім'я*</span>
+                <input type="text" name="name" class="order-form__input" placeholder="Дмитро" autocomplete="name"
+                    required minlength="2" maxlength="30" />
+            </label>
+
+            <label class="order-form__field">
+                <span class="order-form__label">Телефон*</span>
+                <input type="tel" name="phone" class="order-form__input" placeholder="38 099 123 22 11"
+                    autocomplete="tel" required />
+            </label>
+
+            <label class="order-form__field">
+                <span class="order-form__label">Коментар</span>
+                <textarea name="comment" class="order-form__textarea" placeholder="Введіть ваш коментар" rows="4"
+                    maxlength="1000"></textarea>
+            </label>
+
+            <button type="submit" class="btn order-modal__submit">Надіслати заявку</button>
+        </form>
+    </div>
+</section>
 
   </body>
 </html>
