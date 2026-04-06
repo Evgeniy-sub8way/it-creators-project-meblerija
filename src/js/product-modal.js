@@ -1,4 +1,4 @@
-import { getFurnitureById as fetchFurnitureById } from './api';
+import { getFurnitureById as fetchFurnitureById } from './apifmod.js';
 
 const MOCK_FURNITURE = [
 	{
