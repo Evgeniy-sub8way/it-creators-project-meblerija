@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'css-star-rating/css/star-rating.css';
-import { buildStarRatingDiv } from './feedback';
+import { buildStarRatingDiv } from './feedback.js';
 import axios from 'axios';
 
 //Посилання на елементи JS
