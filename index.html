@@ -6,26 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Меблерія</title>
     <script type="module" crossorigin src="/it-creators-project-meblerija/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/it-creators-project-meblerija/assets/vendor-DWEB2HqH.js">
-    <link rel="stylesheet" crossorigin href="/it-creators-project-meblerija/assets/vendor-N4LUBPMf.css">
-    <link rel="stylesheet" crossorigin href="/it-creators-project-meblerija/assets/index-DRYPA6ET.css">
+    <link rel="modulepreload" crossorigin href="/it-creators-project-meblerija/assets/vendor-CXD_EiBz.js">
+    <link rel="stylesheet" crossorigin href="/it-creators-project-meblerija/assets/vendor-DENYHPpF.css">
+    <link rel="stylesheet" crossorigin href="/it-creators-project-meblerija/assets/index-CHfiGV0V.css">
   </head>
   <body>
     <header class="header">
   <div class="container container-header">
     <nav class="nav">
       <a class="logo" href="./index.html">
-        <img src="/it-creators-project-meblerija/assets/logo-CxVj74SN.svg" alt="logo" width="163" height="69.86">
+        <img src="/it-creators-project-meblerija/assets/logo-CxVj74SN.svg" alt="logo" width="163" height="69.86" />
       </a>
 
       <div class="nav-desktop">
         <ul class="nav-list">
-          <li><a href="#" class="nav-link">Наші меблі</a></li>
-          <li><a href="#" class="nav-link">Про нас</a></li>
-          <li><a href="#" class="nav-link">Часті питання</a></li>
-          <li><a href="#" class="nav-link">Відгуки</a></li>
+          <li><a href="#furniture" class="nav-link">Наші меблі</a></li>
+          <li><a href="#about" class="nav-link">Про нас</a></li>
+          <li><a href="#faq" class="nav-link">Часті питання</a></li>
+          <li><a href="#feedback" class="nav-link">Відгуки</a></li>
         </ul>
-        <button class="btn-primary">До покупок</button>
+        <a href="#furniture" class="btn-primary">До покупок</a>
       </div>
 
       <button class="menu-toggle js-open-menu" aria-expanded="false">
@@ -37,12 +37,12 @@
   </div>
 </header>
 
-<div class="mobile-menu js-menu-container ">
-  <div class="mobile-menu-head"> 
+<div class="mobile-menu js-menu-container">
+  <div class="mobile-menu-head">
     <a class="logo mobile-logo" href="./index.html">
-      <img src="/it-creators-project-meblerija/assets/logo-CxVj74SN.svg" alt="logo" width="163" height="69.86">
+      <img src="/it-creators-project-meblerija/assets/logo-CxVj74SN.svg" alt="logo" width="163" height="69.86" />
     </a>
-    
+
     <button class="menu-close js-close-menu">
       <svg width="15.08" height="15.08">
         <use href="/it-creators-project-meblerija/assets/icons-rdq1aitH.svg#icon-x"></use>
@@ -51,74 +51,59 @@
   </div>
 
   <ul class="mobile-nav-list">
-    <li><a href="#" class="mobile-nav-link">Наші меблі</a></li>
-    <li><a href="#" class="mobile-nav-link">Про нас</a></li>
-    <li><a href="#" class="mobile-nav-link">Часті питання</a></li>
-    <li><a href="#" class="mobile-nav-link">Відгуки</a></li>
+    <li><a href="#furniture" class="mobile-nav-link">Наші меблі</a></li>
+    <li><a href="#about" class="mobile-nav-link">Про нас</a></li>
+    <li><a href="#faq" class="mobile-nav-link">Часті питання</a></li>
+    <li><a href="#feedback" class="mobile-nav-link">Відгуки</a></li>
   </ul>
-  <button class="btn-primary mobile-btn">До покупок</button>
+
+  <a href="#furniture" class="btn-primary mobile-btn">До покупок</a>
 </div>
 
+<script>
+  const openBtn = document.querySelector('.js-open-menu');
+  const closeBtn = document.querySelector('.js-close-menu');
+  const menu = document.querySelector('.js-menu-container');
 
-
-<!-- 
-  <div>
-    <svg class="socials-icon" width="32" height="32">
-      <use href="./img/icons.svg#icon-instagram"></use>
-    </svg>
-    <svg class="socials-icon" width="32" height="32">
-      <use href="./img/icons.svg#icon-relume"></use>
-    </svg>
-    <svg class="socials-icon" width="32" height="32">
-      <use href="./img/icons.svg#icon-x"></use>
-    </svg>
-    <svg class="socials-icon" width="32" height="32">
-      <use href="./img/icons.svg#icon-chevron-right"></use>
-    </svg>
-    <svg class="socials-icon" width="32" height="32">
-      <use href="./img/icons.svg#icon-arrow-back"></use>
-    </svg>
-  </div>
--->
-<script> 
-    const openBtn = document.querySelector('.js-open-menu');
-    const closeBtn = document.querySelector('.js-close-menu');
-    const menu = document.querySelector('.js-menu-container');
-
-openBtn.addEventListener('click', () => {
-      menu.classList.add('is-open');
+  openBtn.addEventListener('click', () => {
+    menu.classList.add('is-open');
     document.body.style.overflow = 'hidden';
-});
+  });
 
-    closeBtn.addEventListener('click', closeMenu);
+  closeBtn.addEventListener('click', closeMenu);
 
-    function closeMenu() {
-      menu.classList.remove('is-open');
+  function closeMenu() {
+    menu.classList.remove('is-open');
     document.body.style.overflow = '';
-}
-
-// Клік поза меню
-menu.addEventListener('click', (e) => {
-  if (e.target === menu) {
-      closeMenu();
   }
-});
 
-// ESC
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
+  // Клік поза меню
+  menu.addEventListener('click', e => {
+    if (e.target === menu) {
       closeMenu();
-  }
-});
-  document.addEventListener('click', (e) => {
+    }
+  });
+
+  // ESC
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      closeMenu();
+    }
+  });
+  document.addEventListener('click', e => {
     const isClickInsideMenu = menu.contains(e.target);
     const isClickOnButton = openBtn.contains(e.target);
 
-    if (!isClickInsideMenu && !isClickOnButton && menu.classList.contains('is-open')) {
+    if (
+      !isClickInsideMenu &&
+      !isClickOnButton &&
+      menu.classList.contains('is-open')
+    ) {
       closeMenu();
     }
   });
   const mobileLinks = document.querySelectorAll('.mobile-nav-list a');
+  const mobileBtn = document.querySelector('.mobile-btn');
 
   mobileLinks.forEach(link => {
     link.addEventListener('click', () => {
@@ -126,6 +111,9 @@ document.addEventListener('keydown', (e) => {
     });
   });
 
+  mobileBtn.addEventListener('click', () => {
+    closeMenu();
+  });
 </script>
 
 
@@ -153,7 +141,7 @@ document.addEventListener('keydown', (e) => {
   </div>
 </section>
 
-      <section class="furniture">
+      <section class="furniture" id="furniture">
   <div class="container-furniture">
     <h2 class="title-furniture">Наші меблі</h2>
     <p class="text-furniture">Знайдіть ідеальні рішення для вашого інтер'єру</p>
@@ -215,14 +203,13 @@ document.addEventListener('keydown', (e) => {
   </div>
 </section>
 
-      <section class="faq">
+      <section class="faq" id="faq">
   <h2 class="faq-title">Часті питання</h2>
-  <div class="container-faq">
-     
-  </div>
+  <div class="container-faq"></div>
 </section>
 <span></span>
-      <section class="feedback">
+
+      <section class="feedback" id="feedback">
   <div class="container-feedback">
     <h2 class="feedback-title">Відгуки клієнтів</h2>
     <h3 class="feedback-description">
@@ -268,9 +255,6 @@ document.addEventListener('keydown', (e) => {
         </li>
         <li class="nav-item"><a class="nav-link" href="#about">Про нас</a></li>
 
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="#Popular-Products-Section">Популярне</a>
-        </li> -->
         <li class="nav-item">
           <a class="nav-link" href="#faq">Часті питання</a>
         </li>
@@ -354,8 +338,8 @@ document.addEventListener('keydown', (e) => {
       <div class="product-modal-gallery" data-product-gallery>
         <img
           class="product-modal-gallery-main"
-          src="./img/product-modal/bigsofa1x.jpg"
-          srcset="./img/product-modal/bigsofa1x.jpg 1x, ./img/product-modal/bigsofa2x.jpg 2x"
+          src="https://placehold.co/900x600/webp?text=Furniture+Main"
+          srcset="https://placehold.co/900x600/webp?text=Furniture+Main 1x, https://placehold.co/1800x1200/webp?text=Furniture+Main 2x"
           alt="Софа Oslo"
           data-product-main-image
         />
@@ -363,16 +347,16 @@ document.addEventListener('keydown', (e) => {
         <ul class="product-modal-gallery-list">
           <li class="product-modal-gallery-item">
             <img
-              src="./img/product-modal/cornersofa1x.jpg"
-              srcset="./img/product-modal/cornersofa1x.jpg 1x, ./img/product-modal/cornersofa2x.jpg 2x"
+              src="https://placehold.co/600x400/webp?text=Furniture+View+1"
+              srcset="https://placehold.co/600x400/webp?text=Furniture+View+1 1x, https://placehold.co/1200x800/webp?text=Furniture+View+1 2x"
               alt="Софа Oslo, вигляд 1"
               data-product-thumb
             />
           </li>
           <li class="product-modal-gallery-item">
             <img
-              src="./img/product-modal/smallsofa1x.jpg"
-              srcset="./img/product-modal/smallsofa1x.jpg 1x, ./img/product-modal/smallsofa2x.jpg 2x"
+              src="https://placehold.co/600x400/webp?text=Furniture+View+2"
+              srcset="https://placehold.co/600x400/webp?text=Furniture+View+2 1x, https://placehold.co/1200x800/webp?text=Furniture+View+2 2x"
               alt="Софа Oslo, вигляд 2"
               data-product-thumb
             />
