@@ -40,8 +40,7 @@ import{a as S,i as m,A as j,S as D,N as H,P as z}from"./assets/vendor-DWEB2HqH.j
           </button>
         </h3><div class="ac-panel">
           <p class="ac-text">${t}</p>
-        </div></div>`).join("");$&&($.innerHTML=Ce,new j(".container-faq",{duration:400,сollapse:!0,showMultiple:!1}));//!===========================================================
-const Me="img/star-rating.icons.svg";function Ie(){const e=Me;return`<li class="star">
+        </div></div>`).join("");$&&($.innerHTML=Ce,new j(".container-faq",{duration:400,сollapse:!0,showMultiple:!1}));const Me="img/star-rating.icons.svg";function Ie(){const e=Me;return`<li class="star">
     <svg class="star-empty"><use href="${e}#star-empty"></use></svg>
     <svg class="star-half"><use href="${e}#star-half"></use></svg>
     <svg class="star-filled"><use href="${e}#star-filled"></use></svg>
