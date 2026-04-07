@@ -21,14 +21,17 @@ Product Modal .container-furniture {
   display: inline-block;
 }
 
-/* Активные звезды */
-.product-modal-star.is-active .product-modal-star-icon {
-  fill: #000; /* черные */
+.product-modal-star {
+  color: rgba(8, 12, 9, 0.2);
 }
 
-/* Неактивные звезды */
-.product-modal-star:not(.is-active) .product-modal-star-icon {
-  fill: #ccc; /* серые */
+.product-modal-star.is-active {
+  color: #000;
+}
+
+/* Активные звезды */
+.product-modal-star.is-active .product-modal-star-icon {
+  color: #000;
 }
 
 @media (min-width: 768px) {
@@ -219,7 +222,7 @@ Product Modal .container-furniture {
   display: flex;
   gap: 4px;
   margin-bottom: 8px;
-  color: #080c09;
+  /* color: #080c09; */
 }
 
 .product-modal-colors {
@@ -334,13 +337,13 @@ Product Modal .container-furniture {
 }
 
 /* Star active / inactive */
-.product-modal-star {
+/* .product-modal-star {
   color: rgba(8, 12, 9, 0.2);
 }
 
 .product-modal-star.is-active {
   color: #080c09;
-}
+} */
 
 /* ===== Loader ===== */
 .product-modal-loader {
