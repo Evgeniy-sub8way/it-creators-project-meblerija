@@ -8,7 +8,7 @@
     <script type="module" crossorigin src="/it-creators-project-meblerija/index.js"></script>
     <link rel="modulepreload" crossorigin href="/it-creators-project-meblerija/assets/vendor-DWEB2HqH.js">
     <link rel="stylesheet" crossorigin href="/it-creators-project-meblerija/assets/vendor-N4LUBPMf.css">
-    <link rel="stylesheet" crossorigin href="/it-creators-project-meblerija/assets/index-CHExbM2v.css">
+    <link rel="stylesheet" crossorigin href="/it-creators-project-meblerija/assets/index-DCsTQkqi.css">
   </head>
   <body>
     <header class="header">
@@ -30,7 +30,7 @@
 
       <button class="menu-toggle js-open-menu" aria-expanded="false">
         <svg width="21.33" height="16">
-          <use href="/it-creators-project-meblerija/assets/icons-rdq1aitH.svg#icon-burger"></use>
+          <use href="/it-creators-project-meblerija/assets/icons-CUsx0jxH.svg#icon-burger"></use>
         </svg>
       </button>
     </nav>
@@ -45,7 +45,7 @@
 
     <button class="menu-close js-close-menu">
       <svg width="15.08" height="15.08">
-        <use href="/it-creators-project-meblerija/assets/icons-rdq1aitH.svg#icon-x"></use>
+        <use href="/it-creators-project-meblerija/assets/icons-CUsx0jxH.svg#icon-x"></use>
       </svg>
     </button>
   </div>
@@ -59,62 +59,6 @@
 
   <a href="#furniture-list" class="btn-primary mobile-btn">До покупок</a>
 </div>
-
-<script>
-  const openBtn = document.querySelector('.js-open-menu');
-  const closeBtn = document.querySelector('.js-close-menu');
-  const menu = document.querySelector('.js-menu-container');
-
-  openBtn.addEventListener('click', () => {
-    menu.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-  });
-
-  closeBtn.addEventListener('click', closeMenu);
-
-  function closeMenu() {
-    menu.classList.remove('is-open');
-    document.body.style.overflow = '';
-  }
-
-  // Клік поза меню
-  menu.addEventListener('click', e => {
-    if (e.target === menu) {
-      closeMenu();
-    }
-  });
-
-  // ESC
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      closeMenu();
-    }
-  });
-  document.addEventListener('click', e => {
-    const isClickInsideMenu = menu.contains(e.target);
-    const isClickOnButton = openBtn.contains(e.target);
-
-    if (
-      !isClickInsideMenu &&
-      !isClickOnButton &&
-      menu.classList.contains('is-open')
-    ) {
-      closeMenu();
-    }
-  });
-  const mobileLinks = document.querySelectorAll('.mobile-nav-list a');
-  const mobileBtn = document.querySelector('.mobile-btn');
-
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      closeMenu();
-    });
-  });
-
-  mobileBtn.addEventListener('click', () => {
-    closeMenu();
-  });
-</script>
 
 
 <div id="loader">
@@ -221,12 +165,12 @@
       <div class="btn-wrapper">
         <button class="swiper-button-prev" type="button">
           <svg class="left-btn-icon" width="14" height="14">
-            <use href="/it-creators-project-meblerija/assets/icons-rdq1aitH.svg#icon-arrow-left"></use>
+            <use href="/it-creators-project-meblerija/assets/icons-CUsx0jxH.svg#icon-arrow-left"></use>
           </svg>
         </button>
         <button class="swiper-button-next" type="button">
           <svg class="right-btn-icon" width="14" height="14">
-            <use href="/it-creators-project-meblerija/assets/icons-rdq1aitH.svg#icon-arrow-right"></use>
+            <use href="/it-creators-project-meblerija/assets/icons-CUsx0jxH.svg#icon-arrow-right"></use>
           </svg>
         </button>
       </div>
@@ -276,7 +220,7 @@
             aria-label="YouTube"
           >
             <svg class="socials-icon" width="24" height="24">
-              <use href="/it-creators-project-meblerija/assets/icons-rdq1aitH.svg#icon-youtube"></use>
+              <use href="/it-creators-project-meblerija/assets/icons-CUsx0jxH.svg#icon-youtube"></use>
             </svg>
           </a>
         </li>
@@ -289,7 +233,7 @@
             aria-label="Instagram"
           >
             <svg class="socials-icon" width="24" height="24">
-              <use href="/it-creators-project-meblerija/assets/icons-rdq1aitH.svg#icon-instagram"></use>
+              <use href="/it-creators-project-meblerija/assets/icons-CUsx0jxH.svg#icon-instagram"></use>
             </svg>
           </a>
         </li>
@@ -302,7 +246,7 @@
             aria-label="Facebook"
           >
             <svg class="socials-icon" width="24" height="24">
-              <use href="/it-creators-project-meblerija/assets/icons-rdq1aitH.svg#icon-facebook"></use>
+              <use href="/it-creators-project-meblerija/assets/icons-CUsx0jxH.svg#icon-facebook"></use>
             </svg>
           </a>
         </li>
@@ -330,7 +274,7 @@
         height="24"
         aria-hidden="true"
       >
-        <use href="/it-creators-project-meblerija/assets/icons-rdq1aitH.svg#icon-close"></use>
+        <use href="/it-creators-project-meblerija/assets/icons-CUsx0jxH.svg#icon-close"></use>
       </svg>
     </button>
 
@@ -383,23 +327,23 @@
         >
           <span class="product-modal-star is-active" aria-hidden="true"
             ><svg class="product-modal-star-icon" width="16" height="16">
-              <use href="/it-creators-project-meblerija/assets/icons-rdq1aitH.svg#icon-star"></use></svg
+              <use href="/it-creators-project-meblerija/assets/icons-CUsx0jxH.svg#icon-star"></use></svg
           ></span>
           <span class="product-modal-star is-active" aria-hidden="true"
             ><svg class="product-modal-star-icon" width="16" height="16">
-              <use href="/it-creators-project-meblerija/assets/icons-rdq1aitH.svg#icon-star"></use></svg
+              <use href="/it-creators-project-meblerija/assets/icons-CUsx0jxH.svg#icon-star"></use></svg
           ></span>
           <span class="product-modal-star is-active" aria-hidden="true"
             ><svg class="product-modal-star-icon" width="16" height="16">
-              <use href="/it-creators-project-meblerija/assets/icons-rdq1aitH.svg#icon-star"></use></svg
+              <use href="/it-creators-project-meblerija/assets/icons-CUsx0jxH.svg#icon-star"></use></svg
           ></span>
           <span class="product-modal-star is-active" aria-hidden="true"
             ><svg class="product-modal-star-icon" width="16" height="16">
-              <use href="/it-creators-project-meblerija/assets/icons-rdq1aitH.svg#icon-star"></use></svg
+              <use href="/it-creators-project-meblerija/assets/icons-CUsx0jxH.svg#icon-star"></use></svg
           ></span>
           <span class="product-modal-star is-active" aria-hidden="true"
             ><svg class="product-modal-star-icon" width="16" height="16">
-              <use href="/it-creators-project-meblerija/assets/icons-rdq1aitH.svg#icon-star"></use></svg
+              <use href="/it-creators-project-meblerija/assets/icons-CUsx0jxH.svg#icon-star"></use></svg
           ></span>
           <span class="visually-hidden" data-product-rating-value>5.0</span>
         </div>
