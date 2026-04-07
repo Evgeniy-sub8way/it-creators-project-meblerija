@@ -1,48 +1,50 @@
 .faq {
-  padding: 48px 20px;
+  padding: 48px 0;
 }
 
 .container-faq {
-  padding: 32px 0 0 0;
+  padding: 0 20px;
   margin: 0 auto;
+  min-width: 320px;
+  max-width: 375px;
 }
 .faq-title {
   font-weight: 700;
-    font-size: 36px;
-    line-height: 120%;
-    letter-spacing: 0.01em;
-    text-align: center;
+  font-size: 36px;
+  line-height: 120%;
+  letter-spacing: 0.01em;
+  text-align: center;
 }
 .faq .ac {
   border: none;
   background-color: transparent;
-  border-top: 2px solid #F2F2F2 ;
-} 
-.faq .ac .ac-trigger{
+  border-top: 2px solid #f2f2f2;
+}
+.faq .ac .ac-trigger {
   font-family: inherit;
   font-weight: 700;
-    font-size: 18px;
-    line-height: 160%;
-    cursor: pointer;
+  font-size: 18px;
+  line-height: 160%;
+  cursor: pointer;
 }
-.faq .ac .ac-panel .ac-text{
+.faq .ac .ac-panel .ac-text {
   font-family: inherit;
   font-weight: 400;
-    font-size: 16px;
-    line-height: 160%;
+  font-size: 16px;
+  line-height: 160%;
 }
-.faq .ac .ac-trigger::after{
+.faq .ac .ac-trigger::after {
   content: none !important;
 }
 
-.faq  .ac .ac-trigger{
+.faq .ac .ac-trigger {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   padding-right: 0;
 }
-.faq-icon{
+.faq-icon {
   flex-shrink: 0;
   transition: transform 0.3s ease;
 }
@@ -52,21 +54,24 @@
 
 @media screen and (min-width: 768px) {
   .faq {
-    padding: 48px 32px;
+    padding: 48px 0;
   }
-    .container-faq {
-      max-width: 705px;
-    }
+  .container-faq {
+    padding: 0 32px;
+    min-width: 768px;
+    max-width: 768px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
   .faq {
-    padding: 80px 64px;
+    padding: 80px 0;
   }
   .container-faq {
+    padding: 0 64px;
     max-width: 865px;
   }
-    .faq-title{
-      font-size: 48px;
-    }
+  .faq-title {
+    font-size: 48px;
+  }
 }
