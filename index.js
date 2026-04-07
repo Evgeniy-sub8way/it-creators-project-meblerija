@@ -41,7 +41,7 @@ import{a as L,i as m,A as B,S as F,N,P as D}from"./assets/vendor-DWEB2HqH.js";(f
         </h3><div class="ac-panel">
           <p class="ac-text">${t}</p>
         </div></div>`).join("");I&&(I.innerHTML=Le,new B(".container-faq",{duration:400,сollapse:!0,showMultiple:!1}));//!===========================================================
-const we="/it-creators-project-meblerija../img/star-rating.icons.svg";function Se(){const e=we;return`<li class="star">
+const we="img/star-rating.icons.svg";function Se(){const e=we;return`<li class="star">
     <svg class="star-empty"><use href="${e}#star-empty"></use></svg>
     <svg class="star-half"><use href="${e}#star-half"></use></svg>
     <svg class="star-filled"><use href="${e}#star-filled"></use></svg>
