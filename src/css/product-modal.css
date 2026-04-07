@@ -14,6 +14,23 @@ Product Modal .container-furniture {
   background: rgba(0, 0, 0, 0.25);
 }
 
+/* Базовый стиль для иконки */
+.product-modal-star-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+}
+
+/* Активные звезды */
+.product-modal-star.is-active .product-modal-star-icon {
+  fill: #000; /* черные */
+}
+
+/* Неактивные звезды */
+.product-modal-star:not(.is-active) .product-modal-star-icon {
+  fill: #ccc; /* серые */
+}
+
 @media (min-width: 768px) {
   .product-modal-backdrop {
     padding: 32px;
@@ -76,7 +93,7 @@ Product Modal .container-furniture {
 .product-modal-close-icon,
 .product-modal-star-icon {
   display: block;
-  fill: currentColor;
+  /* fill: black; */
 }
 
 .product-modal-content,
