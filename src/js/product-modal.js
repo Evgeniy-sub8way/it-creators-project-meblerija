@@ -1,6 +1,8 @@
 import 'css-star-rating/css/star-rating.css';
 import starSpriteUrl from 'css-star-rating/images/star-rating.icons.svg?url';
 
+const spritePath = 'img/star-rating.icons.svg';
+
 const MOCK_FURNITURE = [
   {
     _id: '682f9bbf8acbdf505592ac36',
@@ -230,9 +232,9 @@ function renderRating(rating = 0) {
 
 function buildRatingStar() {
   return `<li class="star">
-    <svg class="star-empty"><use href="${starSpriteUrl}#star-empty"></use></svg>
-    <svg class="star-half"><use href="${starSpriteUrl}#star-half"></use></svg>
-    <svg class="star-filled"><use href="${starSpriteUrl}#star-filled"></use></svg>
+    <svg class="star-empty"><use href="${spritePath}#star-empty"></use></svg>
+    <svg class="star-half"><use href="${spritePath}#star-half"></use></svg>
+    <svg class="star-filled"><use href="${spritePath}#star-filled"></use></svg>
   </li>`;
 }
 
