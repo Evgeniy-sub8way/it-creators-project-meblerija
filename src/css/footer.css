@@ -67,16 +67,6 @@
     transform 0.3s ease,
     opacity 0.3s ease;
 }
-.credits:hover,
-.credits:focus {
-  transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
-  transform: scale(1.2);
-  opacity: 0.6;
-  color: black;
-  cursor: pointer;
-}
 
 @media screen and (min-width: 768px) {
   .footer {

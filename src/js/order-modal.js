@@ -28,6 +28,7 @@ function openOrderModalFromEvent(e) {
 
 function openOrderModal() {
   if (!backdropEl) return;
+  formEl.reset();
   backdropEl.classList.remove('is-hidden');
   document.body.style.overflow = 'hidden';
   const dialog = backdropEl.querySelector('.order-modal');
@@ -71,7 +72,8 @@ async function onFormSubmit(e) {
   if (!isValidUkrainePhoneDigits(phoneDigits)) {
     iziToast.error({
       title: 'Помилка',
-      message: 'Введіть коректний номер телефону у форматі українського мобільного.',
+      message:
+        'Введіть коректний номер телефону у форматі українського мобільного.',
       position: 'topRight',
     });
     return;

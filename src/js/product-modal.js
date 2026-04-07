@@ -1,5 +1,4 @@
 import 'css-star-rating/css/star-rating.css';
-import starSpriteUrl from 'css-star-rating/images/star-rating.icons.svg?url';
 
 const spritePath = 'img/star-rating.icons.svg';
 
