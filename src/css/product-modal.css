@@ -26,12 +26,21 @@ Product Modal .container-furniture {
 }
 
 .product-modal-star.is-active {
-  color: #000;
+  color: #080c09;
+}
+
+.product-modal-star.is-half {
+  color: rgba(8, 12, 9, 0.55);
 }
 
 /* Активные звезды */
 .product-modal-star.is-active .product-modal-star-icon {
-  color: #000;
+  color: #080c09;
+}
+
+.product-modal-star-icon use {
+  fill: currentColor;
+  stroke: currentColor;
 }
 
 @media (min-width: 768px) {

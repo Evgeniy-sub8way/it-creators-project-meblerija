@@ -1,3 +1,6 @@
+import 'css-star-rating/css/star-rating.css';
+import starSpriteUrl from 'css-star-rating/images/star-rating.icons.svg?url';
+
 const MOCK_FURNITURE = [
   {
     _id: '682f9bbf8acbdf505592ac36',
@@ -212,17 +215,28 @@ function renderTextContent(furniture) {
 function renderRating(rating = 0) {
   if (!refs.ratingWrap) return;
 
-  const rounded = Math.round(Number(rating));
-  const value = Number.isFinite(Number(rating))
-    ? Number(rating).toFixed(1)
-    : '0.0';
+  const numericRating = Number(rating);
+  const safeRating = Number.isFinite(numericRating)
+    ? Math.min(5, Math.max(0, numericRating))
+    : 0;
+  const valueRating = Math.floor(safeRating);
+  const halfClass = safeRating % 1 !== 0 ? 'half' : '';
+  const value = safeRating.toFixed(1);
 
-  const stars = refs.ratingWrap.querySelectorAll('.product-modal-star');
-  stars.forEach((star, index) => {
-    star.classList.toggle('is-active', index < rounded);
-  });
+  refs.ratingWrap.innerHTML = `<div class="rating star-svg value-${valueRating} ${halfClass} color-default direction-ltr">
+    <ul class="star-container">
+      ${Array.from({ length: 5 }, () => buildRatingStar()).join('')}
+    </ul>
+  </div>
+  <span class="visually-hidden" data-product-rating-value>${value}</span>`;
+}
 
-  if (refs.ratingValue) refs.ratingValue.textContent = value;
+function buildRatingStar() {
+  return `<li class="star">
+    <svg class="star-empty"><use href="${starSpriteUrl}#star-empty"></use></svg>
+    <svg class="star-half"><use href="${starSpriteUrl}#star-half"></use></svg>
+    <svg class="star-filled"><use href="${starSpriteUrl}#star-filled"></use></svg>
+  </li>`;
 }
 
 function renderGallery(images) {
