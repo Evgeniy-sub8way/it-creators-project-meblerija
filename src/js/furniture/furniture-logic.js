@@ -25,11 +25,11 @@ let currentPage = 1;
 
 // ----------------- helpers -----------------
 
-function showError(message) {
+export function showError(message) {
   iziToast.error({ message, position: 'topRight', maxWidth: 400, close: true });
 }
 
-function showInfo(message) {
+export function showInfo(message) {
   iziToast.info({ message, position: 'topRight', maxWidth: 400, close: true });
 }
 

@@ -7,6 +7,8 @@ import 'css-star-rating/css/star-rating.css';
 import { buildStarRatingDiv } from './feedback.js';
 import axios from 'axios';
 
+import { showError } from './furniture/furniture-logic.js';
+
 //Посилання на елементи JS
 const feedbackList = document.querySelector('.swiper-wrapper');
 const leftBtn = document.querySelector('.swiper-button-prev');
@@ -96,7 +98,7 @@ function hideAllElem() {
 // Загальна логіка
 document.addEventListener('DOMContentLoaded', async () => {
   hideAllElem();
-  // ДОПИСАТИ loader start
+
   try {
     const res = await getFeedbacks();
     feedbackList.insertAdjacentHTML(
@@ -106,8 +108,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     initSwiper();
     showAllElem();
   } catch (error) {
-    // ДОПИСАТИ show Error message
+    showError('Вибачте, не вдалося завантажити коментарі. Спробуйте пізніше.');
   } finally {
-    // ДОПИСАТИ loader finish
+    hideLoader();
   }
 });
