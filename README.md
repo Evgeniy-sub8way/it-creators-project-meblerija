@@ -1,7 +1,8 @@
 # 🛋️ Меблерія — Створюємо простір вашої мрії
 
 <p align="center">
-  <img src="../img/hero-section-preview.png" alt="Mebleuria Preview" width="100%">
+  <img src="![Hero preview](src/public/img/hero-section-preview.png)
+" alt="Mebleuria Preview" width="100%">
 </p>
 
 ---
