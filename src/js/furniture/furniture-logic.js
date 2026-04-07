@@ -17,7 +17,7 @@ const refs = {
   categoriesList: document.querySelector('#categories'),
   furnitureList: document.querySelector('#furniture-list'),
   loadMoreBtn: document.querySelector('#load-more'),
-  loader: document.querySelector('#loaderid'),
+  loader: document.querySelector('#loader-container'),
 };
 
 let currentCategory = '';
@@ -104,6 +104,11 @@ document.addEventListener('DOMContentLoaded', initCategories);
 
 export async function renderFurnitureSection(category = '', page = 1) {
   try {
+    if (page === 1) {
+      refs.furnitureList.innerHTML = '';
+      hideLoadMoreButton();
+    }
+
     showLoader();
 
     currentCategory = category;
@@ -117,8 +122,6 @@ export async function renderFurnitureSection(category = '', page = 1) {
     const totalPages = Math.ceil(totalItems / limit);
 
     if (page === 1) {
-      refs.furnitureList.innerHTML = '';
-
       if (items.length === 0) {
         showInfo('Товарів не знайдено');
         hideLoadMoreButton();
@@ -126,6 +129,11 @@ export async function renderFurnitureSection(category = '', page = 1) {
       }
 
       refs.furnitureList.innerHTML = createFurnitureMarkup(items);
+      refs.furnitureList.classList.add('is-animating');
+
+      setTimeout(() => {
+        refs.furnitureList.classList.remove('is-animating');
+      }, 500);
     } else {
       appendFurniture(refs.furnitureList, items);
     }
