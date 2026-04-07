@@ -4,6 +4,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'css-star-rating/css/star-rating.css';
+import { buildStarRatingDiv } from './feedback.js';
 import axios from 'axios';
 
 //Посилання на елементи JS
@@ -25,73 +26,11 @@ async function getFeedbacks() {
   return response.data;
 }
 
+//!========================================================
 // Функція для рендеру
 function feedbackTemplate(feedback) {
-  const rating = feedback.rate;
-  const valueRating = Math.floor(rating);
-  const hasHalf = rating % 1 !== 0;
-  const halfClass = hasHalf ? 'half' : '';
-
   return `<li class="feedback-item swiper-slide">
-  <div class="rating star-svg value-${valueRating} ${halfClass} color-default">
-        <ul class="star-container">
-          <li class="star">
-          <svg class="star-empty">
-                <use href="/img/star-rating.icons.svg#star-empty"></use>
-            </svg>
-             <svg class="star-half">
-                <use href="/img/star-rating.icons.svg#star-half"></use>
-            </svg>
-            <svg class="star-filled">
-                <use href="/img/star-rating.icons.svg#star-filled"></use>
-            </svg>
-          </li>
-          <li class="star">
-            <svg class="star-empty">
-                <use href="/img/star-rating.icons.svg#star-empty"></use>
-            </svg>
-             <svg class="star-half">
-                <use href="/img/star-rating.icons.svg#star-half"></use>
-            </svg>
-            <svg class="star-filled">
-                <use href="/img/star-rating.icons.svg#star-filled"></use>
-            </svg>
-          </li>
-          <li class="star">
-            <svg class="star-empty">
-                <use href="/img/star-rating.icons.svg#star-empty"></use>
-            </svg>
-             <svg class="star-half">
-                <use href="/img/star-rating.icons.svg#star-half"></use>
-            </svg>
-            <svg class="star-filled">
-                <use href="/img/star-rating.icons.svg#star-filled"></use>
-            </svg>
-          </li>
-          <li class="star">
-            <svg class="star-empty">
-                <use href="/img/star-rating.icons.svg#star-empty"></use>
-            </svg>
-             <svg class="star-half">
-                <use href="/img/star-rating.icons.svg#star-half"></use>
-            </svg>
-            <svg class="star-filled">
-                <use href="/img/star-rating.icons.svg#star-filled"></use>
-            </svg>
-          </li>
-          <li class="star">
-            <svg class="star-empty">
-                <use href="/img/star-rating.icons.svg#star-empty"></use>
-            </svg>
-             <svg class="star-half">
-                <use href="/img/star-rating.icons.svg#star-half"></use>
-            </svg>
-            <svg class="star-filled">
-                <use href="/img/star-rating.icons.svg#star-filled"></use>
-            </svg>
-          </li>
-        </ul>
-        </div>
+  ${buildStarRatingDiv(feedback.rate)}
         <p class="feedback-text">${feedback.descr}</p>
         <p class="feedback-author">${feedback.name}</p>
       </li>`;

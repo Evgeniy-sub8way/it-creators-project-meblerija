@@ -60,6 +60,7 @@
   line-height: 160%;
   color: var(--color-scheme-1-text);
 }
+
 .mobile-menu-head {
   display: flex;
   align-items: center;
@@ -104,6 +105,8 @@
 
 /* BUTTON */
 .btn-primary {
+  text-align: center;
+
   border-radius: 100px;
   padding: 8px 20px;
   height: 42px;

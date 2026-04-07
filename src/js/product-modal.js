@@ -1,3 +1,8 @@
+import 'css-star-rating/css/star-rating.css';
+import starSpriteUrl from 'css-star-rating/images/star-rating.icons.svg?url';
+
+const spritePath = 'img/star-rating.icons.svg';
+
 const MOCK_FURNITURE = [
   {
     _id: '682f9bbf8acbdf505592ac36',
@@ -9,9 +14,9 @@ const MOCK_FURNITURE = [
     description:
       'Класичний диван з м’якими подушками та високою спинкою, ідеальний для сімейного відпочинку. Оббивка з якісної зносостійкої тканини.',
     images: [
-      './img/product-modal/bigsofa1x.jpg',
-      './img/product-modal/cornersofa1x.jpg',
-      './img/product-modal/smallsofa1x.jpg',
+      'https://placehold.co/900x600/webp?text=Sofa+Main',
+      'https://placehold.co/600x400/webp?text=Sofa+View+1',
+      'https://placehold.co/600x400/webp?text=Sofa+View+2',
     ],
     color: ['#c7c3bb', '#ffffff', '#201a19'],
   },
@@ -25,8 +30,8 @@ const MOCK_FURNITURE = [
     description:
       'Зручне крісло з опорою для спини. Підходить для робочого кабінету або вітальні. Екологічна тканина.',
     images: [
-      './img/product-modal/cornersofa1x.jpg',
-      './img/product-modal/bigsofa1x.jpg',
+      'https://placehold.co/900x600/webp?text=Chair+Main',
+      'https://placehold.co/600x400/webp?text=Chair+View+1',
     ],
     color: ['#c7c3bb', '#201a19'],
   },
@@ -40,8 +45,8 @@ const MOCK_FURNITURE = [
     description:
       'Ортопедичне ліжко з матрацом. Покращує якість сну. Розмір: 160х200 см.',
     images: [
-      './img/product-modal/smallsofa1x.jpg',
-      './img/product-modal/bigsofa1x.jpg',
+      'https://placehold.co/900x600/webp?text=Bed+Main',
+      'https://placehold.co/600x400/webp?text=Bed+View+1',
     ],
     color: ['#201a19', '#ffffff'],
   },
@@ -71,6 +76,7 @@ const state = {
   isOpen: false,
   lastFocusedEl: null,
   requestId: 0,
+  activeModelId: '',
 };
 
 if (refs.backdrop && refs.modal) {
@@ -95,8 +101,12 @@ function bindStaticEvents() {
   });
 
   refs.orderBtn?.addEventListener('click', () => {
+    const detail = {
+      modelId: state.activeModelId || '',
+      color: getSelectedColorHex(),
+    };
     closeProductModal();
-    openOrderModal();
+    document.dispatchEvent(new CustomEvent('open-order-modal', { detail }));
   });
 
   refs.galleryList?.addEventListener('click', onGalleryThumbClick);
@@ -129,10 +139,7 @@ export async function openProductModal(id) {
   const currentRequestId = ++state.requestId;
 
   try {
-    const response = await fetch(
-      `https://furniture-store-v2.b.goit.study/api/furnitures/${id}`
-    );
-    const data = await response.json();
+    const data = await loadFurnitureById(id);
 
     if (currentRequestId !== state.requestId) return;
 
@@ -160,6 +167,7 @@ function closeProductModal() {
   refs.backdrop.classList.add('is-hidden');
   document.body.style.overflow = '';
   state.isOpen = false;
+  state.activeModelId = '';
 
   if (state.lastFocusedEl && typeof state.lastFocusedEl.focus === 'function') {
     state.lastFocusedEl.focus();
@@ -176,6 +184,15 @@ function renderFurniture(furniture) {
   renderRating(furniture.rate);
   renderGallery(furniture.images || []);
   renderColors(furniture.color || []);
+  state.activeModelId = String(furniture._id || furniture.id || '');
+}
+
+function getSelectedColorHex() {
+  if (!refs.colorsList) return '';
+  const checked = refs.colorsList.querySelector(
+    '.product-modal-color-checkbox:checked'
+  );
+  return checked?.value || '';
 }
 
 function renderTextContent(furniture) {
@@ -197,17 +214,28 @@ function renderTextContent(furniture) {
 function renderRating(rating = 0) {
   if (!refs.ratingWrap) return;
 
-  const rounded = Math.round(Number(rating));
-  const value = Number.isFinite(Number(rating))
-    ? Number(rating).toFixed(1)
-    : '0.0';
+  const numericRating = Number(rating);
+  const safeRating = Number.isFinite(numericRating)
+    ? Math.min(5, Math.max(0, numericRating))
+    : 0;
+  const valueRating = Math.floor(safeRating);
+  const halfClass = safeRating % 1 !== 0 ? 'half' : '';
+  const value = safeRating.toFixed(1);
 
-  const stars = refs.ratingWrap.querySelectorAll('.product-modal-star');
-  stars.forEach((star, index) => {
-    star.classList.toggle('is-active', index < rounded);
-  });
+  refs.ratingWrap.innerHTML = `<div class="rating star-svg value-${valueRating} ${halfClass} color-default direction-ltr">
+    <ul class="star-container">
+      ${Array.from({ length: 5 }, () => buildRatingStar()).join('')}
+    </ul>
+  </div>
+  <span class="visually-hidden" data-product-rating-value>${value}</span>`;
+}
 
-  if (refs.ratingValue) refs.ratingValue.textContent = value;
+function buildRatingStar() {
+  return `<li class="star">
+    <svg class="star-empty"><use href="${spritePath}#star-empty"></use></svg>
+    <svg class="star-half"><use href="${spritePath}#star-half"></use></svg>
+    <svg class="star-filled"><use href="${spritePath}#star-filled"></use></svg>
+  </li>`;
 }
 
 function renderGallery(images) {
@@ -336,14 +364,22 @@ function formatPriceUAH(price) {
   return `${new Intl.NumberFormat('uk-UA').format(Number(price || 0))} грн`;
 }
 
-async function getFurnitureById(id) {
+async function loadFurnitureById(id) {
   const mockFurniture = MOCK_FURNITURE.find(item => item._id === String(id));
-  if (mockFurniture) return mockFurniture;
 
   try {
-    const apiFurniture = await fetchFurnitureById(id);
+    const response = await fetch(
+      `https://furniture-store-v2.b.goit.study/api/furnitures/${id}`
+    );
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+
+    const apiFurniture = await response.json();
     return normalizeFurniture(apiFurniture);
   } catch (error) {
+    if (mockFurniture) return mockFurniture;
     throw error;
   }
 }
@@ -391,17 +427,6 @@ function normalizeFurniture(furniture) {
         ? { _id: '', name: furniture.category }
         : furniture.category || { _id: '', name: furniture.type || '' },
   };
-}
-
-function openOrderModal() {
-  const orderBackdrop = document.querySelector('[data-order-backdrop]');
-  if (orderBackdrop) {
-    orderBackdrop.classList.remove('is-hidden');
-    document.body.style.overflow = 'hidden';
-    return;
-  }
-
-  document.dispatchEvent(new CustomEvent('open-order-modal'));
 }
 
 window.ProductModal = {

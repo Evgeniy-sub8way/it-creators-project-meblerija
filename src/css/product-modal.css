@@ -14,6 +14,35 @@ Product Modal .container-furniture {
   background: rgba(0, 0, 0, 0.25);
 }
 
+/* Базовый стиль для иконки */
+.product-modal-star-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+}
+
+.product-modal-star {
+  color: rgba(8, 12, 9, 0.2);
+}
+
+.product-modal-star.is-active {
+  color: #080c09;
+}
+
+.product-modal-star.is-half {
+  color: rgba(8, 12, 9, 0.55);
+}
+
+/* Активные звезды */
+.product-modal-star.is-active .product-modal-star-icon {
+  color: #080c09;
+}
+
+.product-modal-star-icon use {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
 @media (min-width: 768px) {
   .product-modal-backdrop {
     padding: 32px;
@@ -76,7 +105,7 @@ Product Modal .container-furniture {
 .product-modal-close-icon,
 .product-modal-star-icon {
   display: block;
-  fill: currentColor;
+  /* fill: black; */
 }
 
 .product-modal-content,
@@ -202,7 +231,7 @@ Product Modal .container-furniture {
   display: flex;
   gap: 4px;
   margin-bottom: 8px;
-  color: #080c09;
+  /* color: #080c09; */
 }
 
 .product-modal-colors {
@@ -317,13 +346,13 @@ Product Modal .container-furniture {
 }
 
 /* Star active / inactive */
-.product-modal-star {
+/* .product-modal-star {
   color: rgba(8, 12, 9, 0.2);
 }
 
 .product-modal-star.is-active {
   color: #080c09;
-}
+} */
 
 /* ===== Loader ===== */
 .product-modal-loader {
