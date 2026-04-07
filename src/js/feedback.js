@@ -83,7 +83,9 @@
 // };
 
 //!===========================================================
-const STAR_SPRITE = `${import.meta.env.BASE_URL}../img/star-rating.icons.svg`;
+// ${import.meta.env.BASE_URL}
+
+const STAR_SPRITE = `img/star-rating.icons.svg`;
 
 function starLi() {
   const s = STAR_SPRITE;
