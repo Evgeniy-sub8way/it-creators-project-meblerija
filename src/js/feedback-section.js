@@ -110,6 +110,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   } catch (error) {
     showError('Вибачте, не вдалося завантажити коментарі. Спробуйте пізніше.');
   } finally {
-    hideLoader();
   }
 });
