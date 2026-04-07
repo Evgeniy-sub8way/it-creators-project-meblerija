@@ -39,8 +39,14 @@
   --swiper-theme-color: #080c09 !important;
 }
 
-.star {
+/* .star {
   fill: #080c09;
+} */
+
+.star-empty use,
+.star-half use,
+.star-filled use {
+  fill: black; /* или #000 */
 }
 
 .rating {
