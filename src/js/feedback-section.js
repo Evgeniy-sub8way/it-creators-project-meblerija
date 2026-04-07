@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Keyboard, Mousewheel, Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -45,7 +45,7 @@ function feedbacksTemplate(feedbacks) {
 // Налаштування Swiper and Pagination
 function initSwiper() {
   const swiper = new Swiper('.swiper', {
-    modules: [Navigation, Pagination],
+    modules: [Navigation, Pagination, Keyboard, Mousewheel],
     // Optional parameters
     direction: 'horizontal',
     loop: false,
@@ -78,6 +78,17 @@ function initSwiper() {
     allowSlidePrev: true,
     grabCursor: true,
     simulateTouch: true,
+
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true,
+      pageUpDown: true,
+    },
+
+    mousewheel: {
+      forceToAxis: true,
+      invert: false,
+    },
   });
 }
 
