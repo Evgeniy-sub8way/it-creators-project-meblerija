@@ -7,14 +7,6 @@
 
 .feedback {
   padding: 64px 0;
-  display: flex;
-  justify-content: center;
-}
-
-.container-feedback {
-  padding: 0 20px;
-  min-width: 320px;
-  max-width: 375px;
 }
 
 .feedback-title {
@@ -137,8 +129,6 @@
   }
   .container-feedback {
     padding: 0 32px;
-    min-width: 768px;
-    max-width: 768px;
   }
 
   .feedback-title {
@@ -170,7 +160,6 @@
   }
   .container-feedback {
     padding: 0 64px;
-    max-width: 1440px;
   }
 
   .feedback-title {

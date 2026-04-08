@@ -1,21 +1,16 @@
-.header {
-  padding: 0;
-  background: #fff;
-  position: relative;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-}
 .hide {
   display: none;
 }
 
+.container {
+  position: relative;
+  overflow: visible;
+}
+
 .container-header {
-  min-width: 320px;
-  max-width: 375px;
-  padding: 0 20px;
+  background: #fff;
+  z-index: 10;
+  overflow: visible;
 }
 
 .nav {
@@ -152,32 +147,48 @@
 /* ================= TABLET ================= */
 
 @media screen and (min-width: 768px) {
-  .header {
-    padding: 0;
-  }
-  .container-header {
-    padding: 0 32px;
-    min-width: 768px;
-    max-width: 768px;
-  }
-
   .mobile-menu {
-    padding: 32px;
-    width: 249px;
+    position: absolute;
 
-    left: auto;
-    right: 0;
+    inset: auto;
+
     top: 0;
-    bottom: auto;
+    right: 0;
+    left: auto;
+
+    width: 249px;
+    height: auto;
+    min-height: 400px;
+    padding: 24px 32px;
+
+    box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1);
+
+    opacity: 0;
+    pointer-events: none;
+
     transform: translateX(100%);
+    z-index: 100;
   }
+
   .mobile-menu.is-open {
     transform: translateX(0);
-    padding-top: 6px;
+    opacity: 1;
+    pointer-events: auto;
+    padding: 24px;
+  }
+
+  .mobile-menu .logo {
+    display: none;
+  }
+
+  .mobile-menu-head {
+    justify-content: flex-end;
+    margin-bottom: 40px;
   }
 
   .mobile-nav-list {
     text-align: right;
+    margin-bottom: 40px;
   }
 
   .mobile-btn {
@@ -185,9 +196,10 @@
     height: 42px;
     align-self: flex-end;
   }
+
   .mobile-logo {
-    opacity: 0; /* логотип «невидимий», але займає місце */
-    pointer-events: none; /* по кліку нічого не робить */
+    opacity: 0;
+    pointer-events: none;
     width: 163px;
   }
 }
@@ -195,14 +207,6 @@
 /* ================= DESKTOP ================= */
 
 @media screen and (min-width: 1440px) {
-  .header {
-    padding: 0;
-  }
-  .container-header {
-    padding: 0 64px;
-    min-width: 1440px;
-    max-width: 1440px;
-  }
   .mobile-menu {
     padding: 20px 64px;
   }
