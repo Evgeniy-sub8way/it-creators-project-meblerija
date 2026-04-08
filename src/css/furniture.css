@@ -217,6 +217,7 @@
   align-items: stretch;
   flex-wrap: wrap;
   gap: 24px;
+  margin-bottom: 32px;
 }
 
 .furniture-item {
@@ -329,9 +330,7 @@
 .container-pagination {
   display: none;
   justify-content: center;
-
   margin: 0 auto;
-  padding: 32px 20px 0;
 }
 
 .load-more {
