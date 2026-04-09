@@ -8,7 +8,7 @@
     <script type="module" crossorigin src="/it-creators-project-meblerija/index.js"></script>
     <link rel="modulepreload" crossorigin href="/it-creators-project-meblerija/assets/vendor-B7e9-jab.js">
     <link rel="stylesheet" crossorigin href="/it-creators-project-meblerija/assets/vendor-DDA80s9S.css">
-    <link rel="stylesheet" crossorigin href="/it-creators-project-meblerija/assets/index-B7ZhugQH.css">
+    <link rel="stylesheet" crossorigin href="/it-creators-project-meblerija/assets/index-B646sk9q.css">
   </head>
   <body>
     <header class="header">
@@ -157,7 +157,7 @@
 </section>
 <span></span>
 
-      <section class="feedback" id="feedback">
+      <!-- <section class="feedback" id="feedback">
   <div class="container container-feedback">
     <h2 class="feedback-title">Відгуки клієнтів</h2>
     <h3 class="feedback-description">
@@ -169,14 +169,42 @@
       <div class="btn-wrapper">
         <button class="swiper-button-prev" type="button">
           <svg class="left-btn-icon" width="14" height="14">
-            <use href="/it-creators-project-meblerija/assets/icons-BhZnTZNA.svg#icon-arrow-left"></use>
+            <use href="./img/icons.svg#icon-arrow-left"></use>
           </svg>
         </button>
         <button class="swiper-button-next" type="button">
           <svg class="right-btn-icon" width="14" height="14">
-            <use href="/it-creators-project-meblerija/assets/icons-BhZnTZNA.svg#icon-arrow-right"></use>
+            <use href="./img/icons.svg#icon-arrow-right"></use>
           </svg>
         </button>
+      </div>
+    </div>
+  </div>
+</section> -->
+<section class="feedback" id="feedback">
+  <div class="container container-feedback">
+    <h2 class="feedback-title">Відгуки клієнтів</h2>
+    <h3 class="feedback-description">
+      Дізнайтеся, що кажуть наші задоволені клієнти про наші меблі.
+    </h3>
+    <div class="swiper">
+      <ul class="swiper-wrapper"></ul>
+
+      <div class="feedback-controls">
+        <div class="swiper-pagination"></div>
+
+        <div class="btn-wrapper">
+          <button class="swiper-button-prev" type="button">
+            <svg class="left-btn-icon" width="14" height="14">
+              <use href="/it-creators-project-meblerija/assets/icons-BhZnTZNA.svg#icon-arrow-left"></use>
+            </svg>
+          </button>
+          <button class="swiper-button-next" type="button">
+            <svg class="right-btn-icon" width="14" height="14">
+              <use href="/it-creators-project-meblerija/assets/icons-BhZnTZNA.svg#icon-arrow-right"></use>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -435,36 +463,70 @@
 </div>
 
     <section class="order-modal-backdrop is-hidden" data-order-modal>
-    <div class="order-modal" role="dialog" aria-modal="true" aria-labelledby="order-modal-title" tabindex="-1">
-        <button type="button" class="order-modal__close" data-order-modal-close aria-label="Закрити">
-            <span aria-hidden="true">&times;</span>
-        </button>
+  <div
+    class="order-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="order-modal-title"
+    tabindex="-1"
+  >
+    <button
+      type="button"
+      class="order-modal__close"
+      data-order-modal-close
+      aria-label="Закрити"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
 
-        <h2 class="order-modal__title" id="order-modal-title">Замовити</h2>
+    <h2 class="order-modal__title" id="order-modal-title">Замовити</h2>
 
-        <form class="order-form" data-order-form novalidate>
-            <label class="order-form__field">
-                <span class="order-form__label">Ім'я*</span>
-                <input type="text" name="name" class="order-form__input" placeholder="Дмитро" autocomplete="name"
-                    required minlength="2" maxlength="30" />
-            </label>
+    <form class="order-form" data-order-form novalidate>
+      <label class="order-form__field">
+        <span class="order-form__label">Ім'я*</span>
+        <input
+          type="text"
+          name="name"
+          class="order-form__input"
+          placeholder="Дмитро"
+          autocomplete="name"
+          required
+          minlength="2"
+          maxlength="30"
+        />
+      </label>
 
-            <label class="order-form__field">
-                <span class="order-form__label">Телефон*</span>
-                <input type="tel" name="phone" class="order-form__input" placeholder="38 099 123 22 11"
-                    autocomplete="tel" required />
-            </label>
+      <label class="order-form__field">
+        <span class="order-form__label">Телефон*</span>
+        <input
+          type="tel"
+          name="phone"
+          class="order-form__input"
+          placeholder="380991232211"
+          autocomplete="tel"
+          required
+          pattern="[0-9]+"
+        />
+      </label>
 
-            <label class="order-form__field">
-                <span class="order-form__label">Коментар</span>
-                <textarea name="comment" class="order-form__textarea" placeholder="Введіть ваш коментар" rows="4"
-                    maxlength="1000"></textarea>
-            </label>
+      <label class="order-form__field">
+        <span class="order-form__label">Коментар</span>
+        <textarea
+          name="comment"
+          class="order-form__textarea"
+          placeholder="Введіть ваш коментар"
+          rows="4"
+          maxlength="1000"
+        ></textarea>
+      </label>
 
-            <button type="submit" class="btn order-modal__submit">Надіслати заявку</button>
-        </form>
-    </div>
+      <button type="submit" class="btn order-modal__submit">
+        Надіслати заявку
+      </button>
+    </form>
+  </div>
 </section>
+
 
   </body>
 </html>
