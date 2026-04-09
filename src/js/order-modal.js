@@ -59,7 +59,11 @@ async function onFormSubmit(e) {
   if (!formEl) return;
 
   if (!formEl.checkValidity()) {
-    formEl.reportValidity();
+    iziToast.error({
+      title: 'Помилка',
+      message: 'Будь ласка, заповніть всі обов’язкові поля коректно!',
+      position: 'topRight',
+    });
     return;
   }
 

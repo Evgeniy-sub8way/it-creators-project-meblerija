@@ -129,13 +129,10 @@ export async function renderFurnitureSection(category = '', page = 1) {
       }
 
       refs.furnitureList.innerHTML = createFurnitureMarkup(items);
-      refs.furnitureList.classList.add('is-animating');
-
-      setTimeout(() => {
-        refs.furnitureList.classList.remove('is-animating');
-      }, 500);
+      applyCascadeAnimation();
     } else {
       appendFurniture(refs.furnitureList, items);
+      applyCascadeAnimation();
     }
 
     if (page >= totalPages || items.length < limit) {
@@ -212,4 +209,11 @@ function showLoadMoreButton() {
 
 function hideLoadMoreButton() {
   refs.loadMoreBtn?.classList.remove('is-visible');
+}
+
+function applyCascadeAnimation() {
+  const items = refs.furnitureList.querySelectorAll('.furniture-item');
+  items.forEach((item, index) => {
+    item.style.animationDelay = `${index * 0.15}s`;
+  });
 }

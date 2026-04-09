@@ -296,7 +296,7 @@ Product Modal .container-furniture {
   height: 46px;
   border: 0;
   border-radius: 100px;
-  background: #6b0609;
+  background-color: #6b0609;
   color: #fff;
   font-weight: 500;
   font-size: 16px;
@@ -308,6 +308,18 @@ Product Modal .container-furniture {
     inset 0 0 0 1px rgba(8, 12, 9, 0.15),
     inset 0 -2px 1px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+
+  transition:
+    transform 0.3s ease-in-out,
+    background-color 0.3s ease-in-out,
+    opacity 0.3s ease-in-out;
+}
+
+.product-modal-order-btn:hover,
+.product-modal-order-btn:focus {
+  opacity: 0.9;
+  transform: scale(0.98);
+  background-color: #6d181b;
 }
 
 @media (min-width: 768px) {
