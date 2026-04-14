@@ -228,6 +228,9 @@
   border-radius: 8px;
   overflow: hidden;
   width: 100%;
+
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .furniture-thumb {
@@ -235,7 +238,6 @@
   aspect-ratio: 4 / 3;
   overflow: hidden;
   border-radius: 8px;
-
   background-color: #f5f5f5;
 }
 
@@ -397,16 +399,20 @@
 
 /* ------ Animation for Furniture List ------ */
 
-.furniture-item {
+.furniture-item.is-new {
   opacity: 0;
-  transform: translateX(100vw);
-  animation: showCard 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  transform: translateX(80vw) scale(0.96);
+  animation: showCard 650ms cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
 }
 
 @keyframes showCard {
+  from {
+    opacity: 0;
+    transform: translateX(80vw) scale(0.96);
+  }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0) scale(1);
   }
 }
 
