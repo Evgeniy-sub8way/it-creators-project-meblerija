@@ -18,31 +18,50 @@
     <h2 class="order-modal__title" id="order-modal-title">Замовити</h2>
 
     <form class="order-form" data-order-form novalidate>
-      <label class="order-form__field">
+      <label class="order-form__field" data-order-field="name">
         <span class="order-form__label">Ім'я*</span>
         <input
           type="text"
           name="name"
+          id="order-form-name"
           class="order-form__input"
           placeholder="Дмитро"
           autocomplete="name"
           required
-          minlength="2"
           maxlength="30"
+          inputmode="text"
+          aria-invalid="false"
+          aria-describedby="order-form-name-error"
         />
+        <span
+          class="order-form__error"
+          id="order-form-name-error"
+          role="alert"
+          hidden
+        ></span>
       </label>
 
-      <label class="order-form__field">
+      <label class="order-form__field" data-order-field="phone">
         <span class="order-form__label">Телефон*</span>
         <input
           type="tel"
           name="phone"
+          id="order-form-phone"
           class="order-form__input"
           placeholder="380991232211"
           autocomplete="tel"
           required
-          pattern="[0-9]+"
+          maxlength="12"
+          inputmode="numeric"
+          aria-invalid="false"
+          aria-describedby="order-form-phone-error"
         />
+        <span
+          class="order-form__error"
+          id="order-form-phone-error"
+          role="alert"
+          hidden
+        ></span>
       </label>
 
       <label class="order-form__field">
