@@ -14,7 +14,9 @@
   line-height: 1.2;
   letter-spacing: 0.01em;
   margin-bottom: 24px;
-  width: 335px;
+
+  width: 100%;
+  max-width: 335px;
 }
 
 .feedback-description {
@@ -22,7 +24,9 @@
   font-size: 18px;
   line-height: 1.6;
   margin-bottom: 80px;
-  width: 335px;
+
+  width: 100%;
+  max-width: 335px;
 }
 
 .swiper {
