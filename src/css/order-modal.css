@@ -144,15 +144,37 @@ body.modal-open {
 .order-form__input:focus,
 .order-form__textarea:focus {
   outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+  border-color: rgba(8, 12, 9, 0.22);
+  box-shadow: 0 0 0 1px rgba(8, 12, 9, 0.08);
   background-color: #fff;
 }
 
-.order-form__input:not(:placeholder-shown):invalid,
-.order-form__textarea:not(:placeholder-shown):invalid {
-  border-color: #6b0609 !important; /* Твій бордовий */
-  box-shadow: 0 0 5px rgba(107, 6, 9, 0.25) !important;
+.order-form__field--error .order-form__input,
+.order-form__field--error .order-form__textarea {
+  border-color: #6b0609;
+  box-shadow: 0 0 5px rgba(107, 6, 9, 0.25);
+  color: #6b0609;
+}
+
+.order-form__field--error .order-form__input::placeholder,
+.order-form__field--error .order-form__textarea::placeholder {
+  color: rgba(107, 6, 9, 0.45);
+}
+
+.order-form__field--error .order-form__input:focus,
+.order-form__field--error .order-form__textarea:focus {
+  border-color: #6b0609;
+  box-shadow: 0 0 5px rgba(107, 6, 9, 0.25);
+  background-color: #fff;
+}
+
+.order-form__error {
+  font-family: 'Raleway', sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #6b0609;
+  margin: 0;
+  padding: 0;
 }
 
 .order-modal__submit {
