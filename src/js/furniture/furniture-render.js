@@ -46,7 +46,13 @@ export function createFurnitureMarkup(items) {
       return `
         <li class="furniture-item">
           <div class="furniture-thumb">
-            <img src="${imgSrc}" alt="${name}" loading="lazy" />
+            <img
+              src="${imgSrc}"
+              alt="${name}"
+              width="400"
+              height="300"
+              loading="lazy"
+            />
           </div>
           <div class="furniture-info">
             <h3 class="furniture-heading">${name}</h3>

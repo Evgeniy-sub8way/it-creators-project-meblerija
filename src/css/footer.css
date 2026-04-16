@@ -1,17 +1,10 @@
 .footer {
-  padding: 0 20px;
-  background-color: #6b0609; /* фон на всю ширину */
-  width: 100%;
+  padding-bottom: 32px;
+  background-color: #6b0609;
   color: #ffffff;
-  text-align: center;
-  align-items: center;
 }
 
 .container-footer {
-  padding-top: 0;
-  padding-bottom: 32px;
-  max-width: 320px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,6 +29,7 @@
 .footer .nav-list {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 32px;
 }
 .footer .nav-link {
@@ -69,15 +63,6 @@
 }
 
 @media screen and (min-width: 768px) {
-  .footer {
-    padding: 0 32px;
-  }
-  .container-footer {
-    padding-top: 0;
-    padding-bottom: 32px;
-    max-width: 768px;
-  }
-
   .footer .nav-list {
     display: flex;
     flex-direction: row;
@@ -91,8 +76,6 @@
   }
 
   .container-footer {
-    padding: 0 64px;
-    max-width: 1440px;
     flex-direction: row;
     flex-wrap: nowrap;
     gap: 80px;

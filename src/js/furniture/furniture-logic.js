@@ -22,6 +22,7 @@ const refs = {
 
 let currentCategory = '';
 let currentPage = 1;
+let isLoading = false;
 
 // ----------------- helpers -----------------
 
@@ -71,8 +72,6 @@ const CATEGORIES_ORDER = [
 
 async function initCategories() {
   try {
-    showLoader();
-
     const apiCategories = await fetchCategories();
 
     const finalCategories = CATEGORIES_ORDER.map(name => {
@@ -93,24 +92,19 @@ async function initCategories() {
     initFurnitureModals();
   } catch (error) {
     showError('Не вдалося завантажити товари. Спробуйте пізніше.');
-  } finally {
-    hideLoader();
   }
 }
 
 document.addEventListener('DOMContentLoaded', initCategories);
 
 // ---------- Fetches and renders furniture ----------
-
 export async function renderFurnitureSection(category = '', page = 1) {
+  if (isLoading) return;
+  isLoading = true;
+
+  showLoader();
+
   try {
-    if (page === 1) {
-      refs.furnitureList.innerHTML = '';
-      hideLoadMoreButton();
-    }
-
-    showLoader();
-
     currentCategory = category;
     currentPage = page;
 
@@ -121,36 +115,49 @@ export async function renderFurnitureSection(category = '', page = 1) {
     const limit = data?.limit || 8;
     const totalPages = Math.ceil(totalItems / limit);
 
-    if (page === 1) {
-      if (items.length === 0) {
-        showInfo('Товарів не знайдено');
-        hideLoadMoreButton();
-        return data;
-      }
-
-      refs.furnitureList.innerHTML = createFurnitureMarkup(items);
-      applyCascadeAnimation();
-    } else {
-      appendFurniture(refs.furnitureList, items);
-      applyCascadeAnimation();
+    if (page === 1 && items.length === 0) {
+      refs.furnitureList.innerHTML = '';
+      hideLoadMoreButton();
+      showInfo('Товарів не знайдено');
+      return;
     }
+
+    let newItems;
+
+    if (page === 1) {
+      refs.furnitureList.innerHTML = createFurnitureMarkup(items);
+      newItems = refs.furnitureList.querySelectorAll('.furniture-item');
+    } else {
+      const beforeCount = refs.furnitureList.children.length;
+
+      appendFurniture(refs.furnitureList, items);
+
+      const allItems = refs.furnitureList.querySelectorAll('.furniture-item');
+      newItems = Array.from(allItems).slice(beforeCount);
+    }
+
+    applyCascadeAnimation(newItems);
 
     if (page >= totalPages || items.length < limit) {
       hideLoadMoreButton();
+
+      if (page > 1) {
+        showInfo('Ви досягли кінця списку');
+      }
     } else {
       showLoadMoreButton();
     }
+  } catch (error) {
+    console.error(error);
 
-    if (page > 1 && (page >= totalPages || items.length < limit)) {
-      showInfo('Ви досягли кінця списку');
+    if (page === 1) {
+      refs.furnitureList.innerHTML = '';
     }
 
-    return data;
-  } catch (error) {
-    refs.furnitureList.innerHTML = '';
     hideLoadMoreButton();
     showError('Сталася помилка. Спробуйте пізніше');
   } finally {
+    isLoading = false;
     hideLoader();
   }
 }
@@ -184,8 +191,6 @@ refs.categoriesList.addEventListener('click', handleCategoryClick);
 refs.loadMoreBtn.addEventListener('click', async () => {
   currentPage += 1;
 
-  hideLoadMoreButton();
-
   try {
     await renderFurnitureSection(currentCategory, currentPage);
   } catch {
@@ -211,9 +216,14 @@ function hideLoadMoreButton() {
   refs.loadMoreBtn?.classList.remove('is-visible');
 }
 
-function applyCascadeAnimation() {
-  const items = refs.furnitureList.querySelectorAll('.furniture-item');
-  items.forEach((item, index) => {
-    item.style.animationDelay = `${index * 0.15}s`;
+// --------------- Animation ---------------
+
+function applyCascadeAnimation(newItems) {
+  newItems.forEach((item, index) => {
+    item.classList.add('is-new');
+
+    // item.style.animationDelay = `${index * 180}ms`;
+    item.style.animationDelay = `${index * 160 + Math.random() * 40}ms`;
+    item.style.animationDuration = `650ms`;
   });
 }
